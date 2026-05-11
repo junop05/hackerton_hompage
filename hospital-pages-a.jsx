@@ -394,8 +394,8 @@ function ERStatusPage({ onNavigate, theme }) {
 
 
   const equipment = [
-  { name: 'CT (640채널)', status: '정상 가동' },
-  { name: 'MRI (3.0T)', status: '사용 가능' },
+  { name: 'CT (128채널)', status: '정상 가동' },
+  { name: 'MRI', status: '외부 의뢰 가능: 15분' },
   { name: 'Digital X-ray', status: '정상 가동' },
   { name: '혈관조영장비', status: '정상 가동' },
   { name: '초음파진단기', status: '점검 중' },
