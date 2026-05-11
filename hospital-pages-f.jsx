@@ -39,12 +39,14 @@ function PhilosophyPage({ onNavigate, theme }) {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
             {/* Photo */}
             <div style={{
-              background: C.bg, borderRadius: 12, overflow: 'hidden',
-              aspectRatio: '3/4', display: 'flex', alignItems: 'center',
-              justifyContent: 'center', border: `2px solid ${C.border}`,
-              color: C.textMuted, fontSize: 14, fontFamily: "'Noto Sans KR', sans-serif"
+              borderRadius: 12, overflow: 'hidden',
+              aspectRatio: '3/4',
             }} className="director-photo">
-              병원장 사진
+              <img
+                src="20260511_053631_32fceee2.png"
+                alt="박준호 원장"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
+              />
             </div>
 
             {/* Message */}
