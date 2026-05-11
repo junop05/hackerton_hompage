@@ -753,8 +753,7 @@ function HBOTPage({ onNavigate, theme }) {
 
             <div style={{
               background: 'linear-gradient(135deg, rgba(200,200,200,0.1) 0%, rgba(150,150,150,0.1) 100%)',
-              borderRadius: 8, padding: '40px', display: 'flex',
-              alignItems: 'center', justifyContent: 'center', minHeight: 450,
+              borderRadius: 8, padding: 0, height: 450,
               position: 'relative', overflow: 'hidden'
             }}>
               <img
@@ -762,7 +761,7 @@ function HBOTPage({ onNavigate, theme }) {
                 alt="다인용 고압산소 챔버"
                 style={{
                   width: '100%', height: '100%', objectFit: 'cover',
-                  borderRadius: 6
+                  borderRadius: 8, display: 'block'
                 }}
               />
               <div style={{
