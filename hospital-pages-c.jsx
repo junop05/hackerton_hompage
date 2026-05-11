@@ -205,15 +205,37 @@ function HBOTPage({ onNavigate, theme }) {
               </div>
             )}
           </div>
-          {/* Chamber placeholder */}
           <div style={{
-            background: `repeating-linear-gradient(45deg, ${C.bg} 0px, ${C.bg} 8px, #eaecef 8px, #eaecef 16px)`,
-            borderRadius: 8, border: `1px solid ${C.border}`, height: 340,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            flexDirection: 'column', gap: 12
+            position: 'relative',
+            borderRadius: 8,
+            border: `1px solid ${C.border}`,
+            overflow: 'hidden',
+            height: 340,
+            background: C.bg
           }}>
-            <div style={{ fontSize: 48 }}></div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: C.textMuted, textAlign: 'center' }}>
+            <img
+              src="images/hyperbaric-oxygen-therapy-chamber.jpg"
+              alt="다인용 고압산소 챔버"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block'
+              }}
+            />
+            <div style={{
+              position: 'absolute',
+              bottom: 16,
+              left: 16,
+              right: 16,
+              padding: '12px 14px',
+              background: 'rgba(255,255,255,0.9)',
+              borderRadius: 6,
+              fontSize: 13,
+              color: C.text,
+              fontFamily: "'Noto Sans KR', sans-serif",
+              textAlign: 'center'
+            }}>
               다인용 고압산소 챔버<br />(3인 동시 치료 가능)
             </div>
           </div>
