@@ -17,8 +17,8 @@ function HomePage({ onNavigate, theme }) {
 
 
   const stats = [
-  { n: '3,200+', label: '연간 치료 환자' },
-  { n: '98.2%', label: '화상 치료 성공률' },
+  { n: '1,000+', label: '연간 치료 환자' },
+  { n: '98.2%', label: '화상 골든 타임내 시술' },
   { n: '24H', label: '응급 운영 체계' },
   { n: '15년', label: '전문 진료 연수' }];
 
@@ -163,7 +163,7 @@ function HomePage({ onNavigate, theme }) {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                objectPosition: 'left top'
+                objectPosition: 'center top'
               }}
             />
             {/* Left-side navy fade gradient */}
