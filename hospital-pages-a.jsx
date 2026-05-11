@@ -163,7 +163,7 @@ function HomePage({ onNavigate, theme }) {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                objectPosition: 'center top'
+                objectPosition: 'left top'
               }}
             />
             {/* Left-side navy fade gradient */}
