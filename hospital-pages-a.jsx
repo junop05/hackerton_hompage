@@ -193,26 +193,29 @@ function HomePage({ onNavigate, theme }) {
             fontFamily: "'Inter', sans-serif", letterSpacing: '0.08em', textTransform: 'uppercase', whiteSpace: 'nowrap'
           }}>실시간 현황</div>
           {[
-          { label: '응급실 수용', status: '수용 가능', color: C.success },
-          { label: '화상 치료실', status: '치료 가능', color: C.warning },
-          { label: '응급 수술실', status: '사용 중', color: C.red },
-          { label: '응급수술팀', status: '대기 중', color: C.warning },
+          { label: '응급실 수용', status: '수용 가능' },
+          { label: '화상 치료실', status: '치료 가능' },
+          { label: '응급 수술실', status: '사용 중' },
+          { label: '응급수술팀', status: '대기 중' },
           { label: '평균 대기', status: '약 12분', color: '#94a3b8' }].
-          map((item, i) =>
-          <div key={i} style={{
-            display: 'flex', alignItems: 'center', gap: 20,
-            padding: '0 24px',
-            borderRight: i < 4 ? '1px solid rgba(255,255,255,0.06)' : 'none'
-          }}>
-              <div>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', fontFamily: "'Inter', sans-serif", marginBottom: 3 }}>{item.label}</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: item.color, display: 'inline-block', animation: 'hPulse 2s infinite' }} />
-                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: item.color }}>{item.status}</span>
+          map((item, i) => {
+            const color = item.color || (/대기|가능/.test(item.status) ? C.success : item.status === '사용 중' ? C.red : '#94a3b8');
+            return (
+              <div key={i} style={{
+                display: 'flex', alignItems: 'center', gap: 20,
+                padding: '0 24px',
+                borderRight: i < 4 ? '1px solid rgba(255,255,255,0.06)' : 'none'
+              }}>
+                <div>
+                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', fontFamily: "'Inter', sans-serif", marginBottom: 3 }}>{item.label}</div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: color, display: 'inline-block', animation: 'hPulse 2s infinite' }} />
+                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color }}>{item.status}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            );
+          })}
           <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
             <button onClick={() => onNavigate('er-status')} style={{
               background: 'none', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.6)',
