@@ -223,21 +223,6 @@ function HBOTPage({ onNavigate, theme }) {
                 display: 'block'
               }}
             />
-            <div style={{
-              position: 'absolute',
-              bottom: 16,
-              left: 16,
-              right: 16,
-              padding: '12px 14px',
-              background: 'rgba(255,255,255,0.9)',
-              borderRadius: 6,
-              fontSize: 13,
-              color: C.text,
-              fontFamily: "'Noto Sans KR', sans-serif",
-              textAlign: 'center'
-            }}>
-              다인용 고압산소 챔버<br />(3인 동시 치료 가능)
-            </div>
           </div>
         </div>
       </section>
