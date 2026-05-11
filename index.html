@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>서해한결의료원 — 화상·외상 전문 응급의료</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #F8F9FA;
+    color: #191C1D;
+  }
+
+  button { outline: none; font-family: inherit; }
+  input, textarea, select { font-family: inherit; }
+
+  @keyframes hPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  @keyframes hFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .h-page-enter {
+    animation: hFadeIn 0.22s ease-out forwards;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #C4C6CE; border-radius: 3px; }
+
+  @media (max-width: 768px) {
+    .hero-left-content {
+      width: 100% !important;
+    }
+    .hero-right-image {
+      display: none !important;
+    }
+  }
+</style>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="hospital-components.jsx"></script>
+<script type="text/babel" src="hospital-pages-a.jsx"></script>
+<script type="text/babel" src="hospital-pages-b.jsx"></script>
+<script type="text/babel" src="hospital-pages-c.jsx"></script>
+<script type="text/babel" src="hospital-pages-d.jsx"></script>
+<script type="text/babel" src="hospital-pages-e.jsx"></script>
+<script type="text/babel" src="hospital-pages-f.jsx"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "theme": "B",
+  "erMode": "normal"
+}/*EDITMODE-END*/;
+
+// ── Main App ──────────────────────────────────────────────────────────────
+function App() {
+  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const [page, setPage] = useState('home');
+  const [lang, setLang] = useState('ko');
+  const [visible, setVisible] = useState(true);
+
+  const navigate = (newPage) => {
+    if (newPage === page) return;
+    setVisible(false);
+    setTimeout(() => {
+      setPage(newPage);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      setVisible(true);
+    }, 140);
+  };
+
+  const theme = tweaks.theme || 'A';
+
+  const pageProps = { onNavigate: navigate, theme };
+
+  const pageMap = {
+    'home':          <HomePage          {...pageProps} />,
+    'er-status':     <ERStatusPage      {...pageProps} />,
+    'appointment':   <AppointmentPage   {...pageProps} />,
+    'medical-team':  <MedicalTeamPage   {...pageProps} />,
+    'burn-treatment':<BurnTreatmentPage {...pageProps} />,
+    'hbot':          <HBOTPage          {...pageProps} />,
+    'equipment':     <EquipmentPage     {...pageProps} />,
+    'workers-comp':  <WorkersCompPage   {...pageProps} />,
+    'cooperation':   <MedicalCooperationPage {...pageProps} />,
+    'care-process':  <CareProcessPage   {...pageProps} />,
+    'philosophy':    <PhilosophyPage    {...pageProps} />,
+    'directions':    <DirectionsPage    {...pageProps} />,
+  };
+
+  return (
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <EmergencyBanner onNavigate={navigate} />
+      <Navigation currentPage={page} onNavigate={navigate} lang={lang} setLang={setLang} theme={theme} />
+
+      <main style={{
+        paddingTop: 116, flex: 1,
+        opacity: visible ? 1 : 0,
+        transition: 'opacity 0.14s ease-out',
+      }}>
+        <div className="h-page-enter" key={page}>
+          {pageMap[page] || pageMap['home']}
+        </div>
+      </main>
+
+      <Footer onNavigate={navigate} theme={theme} />
+
+      {/* ── Tweaks Panel ── */}
+      <TweaksPanel title="Tweaks">
+        <TweakSection label="Design Variation" />
+        <TweakRadio
+          label="Theme"
+          value={tweaks.theme}
+          options={[
+            { label: 'A: Heritage', value: 'A' },
+            { label: 'B: Modern', value: 'B' },
+          ]}
+          onChange={v => setTweak('theme', v)}
+        />
+
+        <TweakSection label="ER Status" />
+        <TweakSelect
+          label="응급실 모드"
+          value={tweaks.erMode}
+          options={[
+            { label: '정상 (수용 가능)', value: 'normal' },
+            { label: '혼잡 (대기 증가)', value: 'busy' },
+            { label: '포화 (긴급)', value: 'critical' },
+          ]}
+          onChange={v => setTweak('erMode', v)}
+        />
+
+        <TweakSection label="빠른 페이지 이동" />
+        <TweakButton label="홈" onClick={() => navigate('home')} />
+        <TweakButton label="응급실 현황" onClick={() => navigate('er-status')} />
+        <TweakButton label="온라인 예약" onClick={() => navigate('appointment')} />
+        <TweakButton label="의료진 소개" onClick={() => navigate('medical-team')} />
+        <TweakButton label="화상 치료 센터" onClick={() => navigate('burn-treatment')} />
+        <TweakButton label="HBOT 센터" onClick={() => navigate('hbot')} />
+        <TweakButton label="장비 소개" onClick={() => navigate('equipment')} />
+        <TweakButton label="진료 철학" onClick={() => navigate('philosophy')} />
+        <TweakButton label="오시는 길" onClick={() => navigate('directions')} />
+      </TweaksPanel>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <template id="__bundler_thumbnail" data-bg-color="#0A2540">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#0A2540"/>
+      <text x="600" y="320" font-family="'Noto Serif KR', serif" font-size="96" font-weight="700" fill="white" text-anchor="middle">서해한결의료원</text>
+      <text x="600" y="420" font-family="'Noto Sans KR', sans-serif" font-size="48" fill="#E8533A" text-anchor="middle">화상·외상 전문</text>
+      <circle cx="1000" cy="400" r="200" fill="none" stroke="#E8533A" stroke-width="2" opacity="0.3"/>
+    </svg>
+  </template>
+</body>
+</html>
