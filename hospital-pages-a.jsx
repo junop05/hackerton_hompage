@@ -665,7 +665,7 @@ function HBOTPage({ onNavigate, theme }) {
             alignItems: 'stretch'
           }}>
             <img
-              src="hyperbaric-oxygen-therapy-chamber.jpg"
+              src="./images/hyperbaric-oxygen-therapy-chamber.jpg"
               alt="HBOT Chamber"
               style={{
                 width: '100%',
@@ -758,7 +758,7 @@ function HBOTPage({ onNavigate, theme }) {
               position: 'relative', overflow: 'hidden'
             }}>
               <img
-                src="hyperbaric-oxygen-therapy-chamber.jpg"
+                src="./images/hyperbaric-oxygen-therapy-chamber.jpg"
                 alt="다인용 고압산소 챔버"
                 style={{
                   width: '100%', height: '100%', objectFit: 'cover',
