@@ -285,17 +285,14 @@ function SectionTitle({ children, sub, theme, center = false }) {
 }
 
 function StatusPill({ status }) {
-  const MAP = {
-    '수용 가능': C.success,
-    '치료 가능': C.warning,
-    '사용 중': C.red,
-    '대기 가능': C.success,
-    '정상 가동': C.success,
-    '예약 필요': '#9CA3AF',
-    '사용 가능': C.success,
-    '외부 의뢰 가능: 15분': C.warning,
+  const getColor = (value) => {
+    if (value === '예약 필요') return '#9CA3AF';
+    if (/대기|가능/.test(value)) return C.success;
+    if (value === '사용 중') return C.red;
+    return '#9CA3AF';
   };
-  const color = MAP[status] || '#9CA3AF';
+
+  const color = getColor(status);
   const shouldPulse = status !== '예약 필요';
   return (
     <span style={{
