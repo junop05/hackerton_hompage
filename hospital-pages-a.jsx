@@ -199,7 +199,7 @@ function HomePage({ onNavigate, theme }) {
           { label: '응급수술팀', status: '대기 중' },
           { label: '평균 대기', status: '약 12분', color: '#94a3b8' }].
           map((item, i) => {
-            const color = item.color || (/대기|가능/.test(item.status) ? C.success : item.status === '사용 중' ? C.red : '#94a3b8');
+            const color = item.color || getStatusColor(item.status);
             return (
               <div key={i} style={{
                 display: 'flex', alignItems: 'center', gap: 20,
@@ -359,7 +359,6 @@ function ERStatusPage({ onNavigate, theme }) {
   const statusCards = [
   {
     icon: '', title: '응급실 수용 현황', status: '수용 가능',
-    color: C.success,
     items: [
     { label: '현재 대기 환자', value: '2명' },
     { label: '수용 가능 병상', value: '8개' },
@@ -369,7 +368,6 @@ function ERStatusPage({ onNavigate, theme }) {
   },
   {
     icon: '', title: '화상 치료실', status: '치료 가능',
-    color: C.warning,
     items: [
     { label: '운영 중 병상', value: '3 / 5개' },
     { label: '중증 화상 즉시 수용', value: '가능' },
@@ -379,7 +377,6 @@ function ERStatusPage({ onNavigate, theme }) {
   },
   {
     icon: '', title: '응급 수술실', status: '사용 중',
-    color: C.red,
     items: [
     { label: 'OR1 (진행 중)', value: '~60분', alert: true },
     { label: 'OR2', value: '대기 가능' },
@@ -390,10 +387,10 @@ function ERStatusPage({ onNavigate, theme }) {
 
 
   const staff = [
-  { name: '박준호', title: '원장', dept: '응급의학과', status: '진료 중', color: C.red },
-  { name: '최준락', title: '원장', dept: '화상외과', status: '진료 중', color: C.warning },
+  { name: '박준호', title: '원장', dept: '응급의학과', status: '진료 중', color: C.success },
+  { name: '최준락', title: '원장', dept: '화상외과', status: '진료 중', color: C.success },
   { name: '하태솔', title: '과장', dept: '화상재건외과', status: '대기 중', color: C.success },
-  { name: '윤경준', title: '원장', dept: '정형외과', status: '진료 중', color: C.warning }];
+  { name: '윤경준', title: '원장', dept: '정형외과', status: '진료 중', color: C.success }];
 
 
   const equipment = [
@@ -447,8 +444,8 @@ function ERStatusPage({ onNavigate, theme }) {
                   <div>
                     <div style={{ fontSize: 11, color: C.textMuted, fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 4 }}>{card.title}</div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <span style={{ width: 8, height: 8, borderRadius: '50%', background: card.color, display: 'inline-block', animation: 'hPulse 2s infinite' }} />
-                      <span style={{ fontFamily: th.headingFont, fontSize: 22, fontWeight: 700, color: card.color }}>{card.status}</span>
+                      <span style={{ width: 8, height: 8, borderRadius: '50%', background: getStatusColor(card.status), display: 'inline-block', animation: 'hPulse 2s infinite' }} />
+                      <span style={{ fontFamily: th.headingFont, fontSize: 22, fontWeight: 700, color: getStatusColor(card.status) }}>{card.status}</span>
                     </div>
                   </div>
                   <span style={{ fontSize: 28 }}>{card.icon}</span>

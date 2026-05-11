@@ -284,15 +284,16 @@ function SectionTitle({ children, sub, theme, center = false }) {
 
 }
 
-function StatusPill({ status }) {
-  const getColor = (value) => {
-    if (value === '예약 필요') return '#9CA3AF';
-    if (/대기|가능/.test(value)) return C.success;
-    if (value === '사용 중') return C.red;
-    return '#9CA3AF';
-  };
+function getStatusColor(status) {
+  const value = String(status || '').trim();
+  if (value === '예약 필요') return '#9CA3AF';
+  if (/^(사용 중|진행 중)$/.test(value)) return C.red;
+  if (/대기|가능|진료|운영|정상|수용|상주/.test(value)) return C.success;
+  return '#9CA3AF';
+}
 
-  const color = getColor(status);
+function StatusPill({ status }) {
+  const color = getStatusColor(status);
   const shouldPulse = status !== '예약 필요';
   return (
     <span style={{
@@ -386,4 +387,4 @@ function Footer({ onNavigate, theme }) {
 
 }
 
-Object.assign(window, { C, THEMES, NAV_LINKS, EmergencyBanner, Navigation, PageHero, SectionTitle, StatusPill, DocAvatar, Footer });
+Object.assign(window, { C, THEMES, NAV_LINKS, EmergencyBanner, Navigation, PageHero, SectionTitle, StatusPill, DocAvatar, Footer, getStatusColor });
