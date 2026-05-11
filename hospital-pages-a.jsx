@@ -573,4 +573,288 @@ function ERStatusPage({ onNavigate, theme }) {
 
 }
 
-Object.assign(window, { HomePage, ERStatusPage });
+// ─────────────────────────────────────────
+//  HBOT PAGE
+// ─────────────────────────────────────────
+function HBOTPage({ onNavigate, theme }) {
+  const th = THEMES[theme];
+
+  const features = [
+    { title: '다인용 고압산소 챔버', desc: '최대 12인 동시 치료 가능한 첨단 장비로 안전하고 효율적인 치료를 제공합니다.' },
+    { title: '난치성 상처 치료', desc: '당뇨성 족부궤양, 화상 후유증, 골수염 등 난치성 상처의 조직 재생을 촉진합니다.' },
+    { title: '감압증 응급 치료', desc: '잠수병, 가스색전증 등 감압증 환자를 위한 24시간 긴급 치료 시스템을 운영합니다.' },
+    { title: '화상 회복 가속화', desc: 'HBOT 치료로 화상 환자의 상처 치유 기간을 단축하고 재감염 위험을 감소시킵니다.' }
+  ];
+
+  const stats = [
+    { n: '500+', label: '연간 HBOT 치료' },
+    { n: '92%', label: '상처 치유 성공률' },
+    { n: '24H', label: '응급 치료 운영' },
+    { n: '12인', label: '동시 치료 가능' }
+  ];
+
+  return (
+    <div>
+      <PageHero
+        title="HBOT 고압산소치료"
+        subtitle="첨단 고압산소 치료로 난치성 상처를 치유합니다."
+        breadcrumb={[{ label: '홈', page: 'home' }, { label: 'HBOT' }]}
+        onNavigate={onNavigate} theme={theme} />
+
+      {/* Hero Section with Image */}
+      <section style={{
+        height: '70vh',
+        background: th.heroGradient,
+        display: 'flex', alignItems: 'center',
+        position: 'relative', overflow: 'hidden'
+      }}>
+        <div style={{
+          position: 'absolute', inset: 0, pointerEvents: 'none',
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
+          backgroundSize: '64px 64px'
+        }} />
+
+        <div style={{
+          display: 'flex',
+          width: '100%',
+          height: '100%',
+          position: 'relative',
+          zIndex: 1
+        }}>
+          <div style={{
+            width: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            padding: '0 32px'
+          }}>
+            <div style={{ maxWidth: 520 }}>
+              <h2 style={{
+                fontFamily: th.headingFont,
+                fontSize: 'clamp(32px, 4vw, 50px)',
+                fontWeight: 800, color: '#fff',
+                lineHeight: 1.2, marginBottom: 20, letterSpacing: '-0.02em'
+              }}>고압산소 치료의 선두주자</h2>
+
+              <p style={{
+                fontSize: 16, color: 'rgba(255,255,255,0.75)',
+                fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.8,
+                marginBottom: 32
+              }}>
+                최첨단 다인용 고압산소 챔버를 통해 화상 회복, 난치성 상처, 감압증을 안전하고 효과적으로 치료합니다. 전문 의료진이 24시간 대기하고 있습니다.
+              </p>
+
+              <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+                <button onClick={() => onNavigate('appointment')} style={{
+                  background: C.red, color: '#fff', border: 'none',
+                  padding: '14px 28px', borderRadius: 4, cursor: 'pointer',
+                  fontFamily: "'Noto Sans KR', sans-serif", fontSize: 14, fontWeight: 700,
+                  transition: 'all 0.15s'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.background = '#a82e20'}
+                onMouseLeave={(e) => e.currentTarget.style.background = C.red}>
+                  HBOT 예약하기 →</button>
+              </div>
+            </div>
+          </div>
+
+          <div style={{
+            width: '50%',
+            height: '100%',
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'stretch'
+          }}>
+            <img
+              src="hyperbaric-oxygen-therapy-chamber.jpg"
+              alt="HBOT Chamber"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center'
+              }}
+            />
+            <div style={{
+              position: 'absolute',
+              left: 0,
+              top: 0,
+              bottom: 0,
+              width: '120px',
+              background: `linear-gradient(90deg, #0f2744 0%, transparent 100%)`,
+              pointerEvents: 'none'
+            }} />
+          </div>
+        </div>
+      </section>
+
+      {/* What is HBOT */}
+      <section style={{ padding: '80px 32px', background: '#fff' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
+            <div>
+              <h2 style={{
+                fontFamily: th.headingFont, fontSize: 32, fontWeight: 700,
+                color: C.navy, marginBottom: 24
+              }}>HBOT란?</h2>
+              <p style={{
+                fontSize: 14, color: C.textMuted, lineHeight: 1.8,
+                fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 24
+              }}>
+                고압산소치료(Hyperbaric Oxygen Therapy)
+              </p>
+              <p style={{
+                fontSize: 14, color: C.textMuted, lineHeight: 1.8,
+                fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 28
+              }}>
+                고압산소치료는 특수 챔버 안에서 대기압보다 높은 기압(2-3 ATA) 환경에 100% 순수 산소를 공급하는 치료법입니다.
+              </p>
+              <p style={{
+                fontSize: 14, color: C.textMuted, lineHeight: 1.8,
+                fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 28
+              }}>
+                혈액 내 산소 용해도를 극대화하여 손상된 조직에 산소를 공급하게 되어, 세포 재생과 감염 억제 효과를 동시에 제공합니다.
+              </p>
+
+              <div style={{
+                display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24
+              }}>
+                <div>
+                  <div style={{
+                    fontSize: 28, fontWeight: 800, color: C.red,
+                    fontFamily: "'Inter', sans-serif", marginBottom: 4
+                  }}>최대<br />2000%</div>
+                  <div style={{
+                    fontSize: 12, color: C.textMuted,
+                    fontFamily: "'Noto Sans KR', sans-serif"
+                  }}>혈중 산소 증가</div>
+                </div>
+                <div>
+                  <div style={{
+                    fontSize: 24, fontWeight: 700, color: C.red,
+                    fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 4
+                  }}>최대<br />40% 향상</div>
+                  <div style={{
+                    fontSize: 12, color: C.textMuted,
+                    fontFamily: "'Noto Sans KR', sans-serif"
+                  }}>상처 치유 속도 향상</div>
+                </div>
+              </div>
+              <div style={{ marginTop: 24 }}>
+                <div style={{
+                  fontSize: 14, fontWeight: 700, color: C.red,
+                  fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 4
+                }}>임상 입증</div>
+                <div style={{
+                  fontSize: 13, color: C.textMuted,
+                  fontFamily: "'Noto Sans KR', sans-serif"
+                }}>감염 억제 효과</div>
+              </div>
+            </div>
+
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(200,200,200,0.1) 0%, rgba(150,150,150,0.1) 100%)',
+              borderRadius: 8, padding: '40px', display: 'flex',
+              alignItems: 'center', justifyContent: 'center', minHeight: 450,
+              position: 'relative', overflow: 'hidden'
+            }}>
+              <img
+                src="hyperbaric-oxygen-therapy-chamber.jpg"
+                alt="다인용 고압산소 챔버"
+                style={{
+                  width: '100%', height: '100%', objectFit: 'cover',
+                  borderRadius: 6
+                }}
+              />
+              <div style={{
+                position: 'absolute', bottom: 20, right: 20,
+                background: 'rgba(255,255,255,0.95)', padding: '12px 16px',
+                borderRadius: 4, fontSize: 12, fontWeight: 600,
+                color: C.navy, fontFamily: "'Noto Sans KR', sans-serif"
+              }}>
+                다인용 고압산소 챔버<br />(3인 동시 치료 가능)
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section style={{ padding: '80px 32px', background: th.altBg }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+          <SectionTitle theme={theme} sub="다양한 질환의 치료와 회복을 돕습니다.">HBOT 치료 효과</SectionTitle>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 32 }}>
+            {features.map((f, i) =>
+            <div key={i} style={{
+              padding: '32px 28px', background: '#fff', borderRadius: 8,
+              ...th.cardStyle
+            }}
+            onMouseEnter={(e) => Object.assign(e.currentTarget.style, th.cardHover)}
+            onMouseLeave={(e) => Object.assign(e.currentTarget.style, th.cardStyle)}>
+              <h3 style={{
+                fontFamily: th.headingFont, fontSize: 18, fontWeight: 700,
+                color: C.navy, marginBottom: 12
+              }}>{f.title}</h3>
+              <p style={{
+                fontSize: 14, color: C.textMuted, lineHeight: 1.8,
+                fontFamily: "'Noto Sans KR', sans-serif"
+              }}>{f.desc}</p>
+            </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section style={{ padding: '80px 32px', background: '#fff' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24
+          }}>
+            {stats.map((s, i) =>
+            <div key={i} style={{
+              textAlign: 'center', padding: '32px 24px',
+              background: C.bg, borderRadius: 8, ...th.cardStyle
+            }}
+            onMouseEnter={(e) => Object.assign(e.currentTarget.style, th.cardHover)}
+            onMouseLeave={(e) => Object.assign(e.currentTarget.style, th.cardStyle)}>
+              <div style={{
+                fontFamily: "'Inter', sans-serif", fontSize: 36, fontWeight: 800,
+                color: C.coral, marginBottom: 8
+              }}>{s.n}</div>
+              <div style={{
+                fontFamily: "'Noto Sans KR', sans-serif", fontSize: 13,
+                color: C.textMuted
+              }}>{s.label}</div>
+            </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ background: C.navy, padding: '60px 32px', textAlign: 'center' }}>
+        <div style={{ maxWidth: 640, margin: '0 auto' }}>
+          <h2 style={{
+            fontFamily: th.headingFont, fontSize: 32, fontWeight: 700,
+            color: '#fff', marginBottom: 16, lineHeight: 1.3
+          }}>고압산소 치료가 필요하신가요?</h2>
+          <p style={{
+            fontSize: 15, color: 'rgba(255,255,255,0.6)', marginBottom: 32,
+            fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.7
+          }}>
+            전문 의료진이 상담 후 맞춤형 치료 계획을 수립해드립니다.
+          </p>
+          <button onClick={() => onNavigate('appointment')} style={{
+            background: C.red, color: '#fff', border: 'none', padding: '14px 32px',
+            borderRadius: 4, cursor: 'pointer', fontFamily: "'Noto Sans KR', sans-serif",
+            fontSize: 15, fontWeight: 700, transition: 'all 0.15s'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.background = '#a82e20'}
+          onMouseLeave={(e) => e.currentTarget.style.background = C.red}>
+            지금 예약하기 →</button>
+        </div>
+      </section>
+    </div>);
+}
+
+Object.assign(window, { HomePage, ERStatusPage, HBOTPage });
