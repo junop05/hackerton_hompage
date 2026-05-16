@@ -476,7 +476,7 @@ function ERStatusPage({ onNavigate, theme }) {
       <section style={{ padding: '60px 32px', background: '#fff' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <SectionTitle theme={theme}>의료진 현재 상태</SectionTitle>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
+          <div className="h-staff-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
             {staff.map((s, i) =>
             <div key={i} style={{
               display: 'flex', alignItems: 'center', gap: 16, padding: '20px',
