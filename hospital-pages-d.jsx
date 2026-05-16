@@ -88,7 +88,7 @@ function MedicalCooperationPage({ onNavigate, theme }) {
             borderRadius: 8, padding: '32px', marginBottom: 60,
             borderLeft: `4px solid ${C.coral}`
           }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+            <div className="h-coop-overview" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
               <div>
                 <div style={{ fontSize: 28, fontWeight: 700, color: C.coral, fontFamily: "'Inter', sans-serif", marginBottom: 6 }}>4개</div>
                 <div style={{ fontSize: 14, color: C.text, fontFamily: "'Noto Sans KR', sans-serif" }}>협력병원 및 기관</div>
@@ -163,7 +163,7 @@ function MedicalCooperationPage({ onNavigate, theme }) {
       <section style={{ padding: '60px 32px', background: '#fff' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <SectionTitle theme={theme}>전원 절차 안내</SectionTitle>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 40 }}>
+          <div className="h-coop-steps" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 40 }}>
             {steps.map((s, i) => (
               <div key={i} style={{ position: 'relative' }}>
                 <div style={{
@@ -183,7 +183,7 @@ function MedicalCooperationPage({ onNavigate, theme }) {
                   </p>
                 </div>
                 {i < 3 && (
-                  <div style={{
+                  <div className="h-coop-step-arrow" style={{
                     position: 'absolute', right: -10, top: '50%', transform: 'translateY(-50%)',
                     fontSize: 20, color: C.coral
                   }}>→</div>

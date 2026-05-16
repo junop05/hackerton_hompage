@@ -69,7 +69,7 @@ function AppointmentPage({ onNavigate, theme }) {
         <div style={{ maxWidth: 920, margin: '0 auto' }}>
 
           {/* Step indicator */}
-          <div style={{ display: 'flex', alignItems: 'center', marginBottom: 52, justifyContent: 'center' }}>
+          <div className="h-appt-steps" style={{ display: 'flex', alignItems: 'center', marginBottom: 52, justifyContent: 'center' }}>
             {STEPS.map((s, i) => (
               <React.Fragment key={s.n}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
@@ -221,7 +221,7 @@ function AppointmentPage({ onNavigate, theme }) {
               <p style={{ fontSize: 14, color: C.textMuted, fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 32 }}>정확한 정보를 입력하시면 신속한 응급 처치가 가능합니다.</p>
 
               {/* Summary */}
-              <div style={{ background: C.navy + '0a', border: `1px solid ${C.navy}22`, borderRadius: 6, padding: '16px 20px', marginBottom: 32, display: 'flex', gap: 32 }}>
+              <div className="h-appt-summary" style={{ background: C.navy + '0a', border: `1px solid ${C.navy}22`, borderRadius: 6, padding: '16px 20px', marginBottom: 32, display: 'flex', gap: 32 }}>
                 {[
                   { label: '진료과', value: depts.find(d => d.id === sel.dept)?.label || '미선택' },
                   { label: '의료진', value: doctors.find(d => d.id === sel.doctor)?.name || '미선택' },
@@ -292,7 +292,7 @@ function AppointmentPage({ onNavigate, theme }) {
                 예약 확인 문자가 등록하신 연락처로 발송됩니다.<br />
                 예약 변경·취소는 방문 24시간 전까지 가능합니다.
               </p>
-              <div style={{ display: 'inline-flex', gap: 48, background: C.bg, borderRadius: 8, padding: '24px 40px', marginBottom: 36 }}>
+              <div className="h-appt-confirm-info" style={{ display: 'inline-flex', gap: 48, background: C.bg, borderRadius: 8, padding: '24px 40px', marginBottom: 36 }}>
                 {[
                   { label: '의료진', value: doctors.find(d => d.id === sel.doctor)?.name || '—' },
                   { label: '날짜', value: sel.date ? `10월 ${sel.date}일` : '—' },
@@ -357,7 +357,7 @@ function MedicalTeamPage({ onNavigate, theme }) {
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 
           {/* Dept tabs */}
-          <div style={{ display: 'flex', gap: 8, marginBottom: 48, flexWrap: 'wrap' }}>
+          <div className="h-filter-tabs" style={{ display: 'flex', gap: 8, marginBottom: 48, flexWrap: 'wrap' }}>
             {deptTabs.map(tab => (
               <button key={tab.id} onClick={() => setActiveDept(tab.id)} style={{
                 padding: '9px 18px', borderRadius: 4, cursor: 'pointer',

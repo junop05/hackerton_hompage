@@ -53,7 +53,7 @@ function BurnTreatmentPage({ onNavigate, theme }) {
       <section style={{ padding: '60px 32px', background: th.altBg }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <SectionTitle theme={theme} sub="화상 정도에 따른 증상과 치료 방법을 확인하세요.">화상 단계별 안내</SectionTitle>
-          <div style={{ display: 'flex', gap: 0, marginBottom: 32, borderBottom: `2px solid ${C.borderLight}` }}>
+          <div className="h-burn-tabs" style={{ display: 'flex', gap: 0, marginBottom: 32, borderBottom: `2px solid ${C.borderLight}` }}>
             {tabs.map((tab, i) =>
             <button key={i} onClick={() => setActiveTab(i)} style={{
               padding: '12px 28px', background: 'none', border: 'none', cursor: 'pointer',
@@ -334,7 +334,7 @@ function EquipmentPage({ onNavigate, theme }) {
       <section style={{ padding: '60px 32px 80px', background: th.altBg }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           {/* Category filter */}
-          <div style={{ display: 'flex', gap: 8, marginBottom: 40 }}>
+          <div className="h-filter-tabs" style={{ display: 'flex', gap: 8, marginBottom: 40 }}>
             {categories.map((cat) =>
             <button key={cat.id} onClick={() => setActiveCategory(cat.id)} style={{
               padding: '9px 18px', borderRadius: 4, cursor: 'pointer',

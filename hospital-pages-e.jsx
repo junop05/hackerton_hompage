@@ -97,7 +97,7 @@ function CareProcessPage({ onNavigate, theme }) {
       {/* Process Selector */}
       <section style={{ padding: '40px 32px', background: '#fff', borderBottom: `1px solid ${C.borderLight}` }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12 }}>
+          <div className="h-care-process-tabs" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12 }}>
             {processes.map((p, i) => (
               <button
                 key={i}

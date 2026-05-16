@@ -26,7 +26,7 @@ function HomePage({ onNavigate, theme }) {
   return (
     <div>
       {/* ── Hero ── */}
-      <section style={{
+      <section className="h-home-hero" style={{
         height: '75vh',
         background: th.heroGradient,
         display: 'flex', alignItems: 'center',
@@ -129,7 +129,7 @@ function HomePage({ onNavigate, theme }) {
               </div>
 
               {/* Stats row */}
-              <div style={{
+              <div className="h-hero-stats" style={{
                 display: 'flex', gap: 0, maxWidth: 520,
                 border: '1px solid rgba(255,255,255,0.1)'
               }}>
@@ -182,7 +182,7 @@ function HomePage({ onNavigate, theme }) {
 
       {/* ── ER Status Strip ── */}
       <div style={{ background: '#061729', padding: '0 32px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-        <div style={{
+        <div className="h-er-strip" style={{
           maxWidth: 1280, margin: '0 auto',
           display: 'flex', alignItems: 'stretch', height: 64
         }}>
@@ -319,7 +319,7 @@ function HomePage({ onNavigate, theme }) {
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', marginBottom: 36, fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.7 }}>
             골든타임이 생사를 결정합니다. 24시간 응급 전문의가 대기 중입니다.
           </p>
-          <div style={{
+          <div className="h-phone-cta" style={{
             display: 'inline-block',
             fontFamily: "'Inter', sans-serif", fontSize: 42, fontWeight: 800,
             color: '#fff', letterSpacing: '-0.01em', marginBottom: 32
@@ -602,7 +602,7 @@ function HBOTPage({ onNavigate, theme }) {
         onNavigate={onNavigate} theme={theme} />
 
       {/* Hero Section with Image */}
-      <section style={{
+      <section className="h-hbot-hero" style={{
         height: '70vh',
         background: th.heroGradient,
         display: 'flex', alignItems: 'center',
@@ -657,7 +657,7 @@ function HBOTPage({ onNavigate, theme }) {
             </div>
           </div>
 
-          <div style={{
+          <div className="h-hbot-hero-img" style={{
             width: '50%',
             height: '100%',
             position: 'relative',

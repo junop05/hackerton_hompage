@@ -73,18 +73,18 @@ const NAV_LINKS = [
 
 function EmergencyBanner({ onNavigate }) {
   return (
-    <div style={{
+    <div className="h-emergency-banner" style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
       background: C.red, color: '#fff', height: 44,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 500,
       letterSpacing: '0.01em', gap: 8
     }}>
-      <span style={{ opacity: 0.9 }}>⚠️ 서해한결의료원 응급실 24시간 운영 중</span>
-      <span style={{ opacity: 0.4 }}>|</span>
-      <span style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>응급실 핫라인: 041-0000-0000</span>
-      <span style={{ opacity: 0.4 }}>|</span>
-      <button onClick={() => onNavigate('er-status')} style={{
+      <span style={{ opacity: 0.9 }}>⚠️ 응급실 24시간 운영 중</span>
+      <span className="h-eb-sep" style={{ opacity: 0.4 }}>|</span>
+      <span style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>핫라인: 041-0000-0000</span>
+      <span className="h-eb-sep" style={{ opacity: 0.4 }}>|</span>
+      <button onClick={() => onNavigate('er-status')} className="h-eb-link" style={{
         color: '#fff', textDecoration: 'underline', background: 'none', border: 'none',
         cursor: 'pointer', fontSize: 13, fontFamily: "'Inter', sans-serif", fontWeight: 500
       }}>응급실 현황 →</button>
@@ -94,6 +94,8 @@ function EmergencyBanner({ onNavigate }) {
 
 function Navigation({ currentPage, onNavigate, lang, setLang, theme }) {
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState({});
   const closeTimer = useRef(null);
   const th = THEMES[theme];
 
@@ -114,13 +116,34 @@ function Navigation({ currentPage, onNavigate, lang, setLang, theme }) {
     return false;
   };
 
+  const goMobile = (page) => {
+    setMobileOpen(false);
+    onNavigate(page);
+  };
+
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 768 && mobileOpen) setMobileOpen(false);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [mobileOpen]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
   return (
-    <nav style={{
+    <React.Fragment>
+    <nav className="h-nav" style={{
       position: 'fixed', top: 44, left: 0, right: 0, zIndex: 999,
       background: '#fff', borderBottom: `1px solid ${C.border}`,
       height: 72
     }}>
-      <div style={{
+      <div className="h-nav-inner" style={{
         maxWidth: 1280, margin: '0 auto', height: '100%',
         padding: '0 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between'
       }}>
@@ -129,23 +152,23 @@ function Navigation({ currentPage, onNavigate, lang, setLang, theme }) {
           background: 'none', border: 'none', cursor: 'pointer',
           display: 'flex', flexDirection: 'column', gap: 3, textAlign: 'left'
         }}>
-          <div style={{
+          <div className="h-nav-logo-title" style={{
             fontFamily: th.headingFont, fontSize: 20, fontWeight: 800,
             color: C.navy, lineHeight: 1, letterSpacing: '-0.01em'
           }}>서해한결의료원</div>
-          <div style={{
+          <div className="h-nav-logo-sub" style={{
             fontFamily: "'Noto Sans KR', sans-serif", fontSize: 10,
             color: C.textMuted, letterSpacing: '0.04em'
           }}>화상 · 외상 전문 응급의료기관</div>
         </button>
 
-        {/* Nav links */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
+        {/* Nav links (desktop) */}
+        <div className="h-nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
           {NAV_LINKS.map((link, i) =>
           <div key={i} style={{ position: 'relative' }}
           onMouseEnter={() => link.sub && openMenu(i)}
           onMouseLeave={closeMenu}>
-            
+
               <button
               onClick={() => !link.sub && onNavigate(link.page)}
               style={{
@@ -158,7 +181,7 @@ function Navigation({ currentPage, onNavigate, lang, setLang, theme }) {
                 display: 'flex', alignItems: 'center', gap: 3,
                 whiteSpace: 'nowrap'
               }}>
-              
+
                 {link.label}
                 {link.sub && <span style={{ fontSize: 9, opacity: 0.6 }}>▾</span>}
               </button>
@@ -194,8 +217,8 @@ function Navigation({ currentPage, onNavigate, lang, setLang, theme }) {
           )}
         </div>
 
-        {/* Right */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        {/* Right (desktop) */}
+        <div className="h-nav-right-desktop" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <div style={{ display: 'flex', border: `1px solid ${C.border}`, borderRadius: 3, overflow: 'hidden' }}>
             {['ko', 'en'].map((l) =>
             <button key={l} onClick={() => setLang(l)} style={{
@@ -217,25 +240,128 @@ function Navigation({ currentPage, onNavigate, lang, setLang, theme }) {
           }}
           onMouseEnter={(e) => e.currentTarget.style.background = '#a82e20'}
           onMouseLeave={(e) => e.currentTarget.style.background = C.red}>
-            
+
             응급 예약
           </button>
         </div>
+
+        {/* Hamburger (mobile) */}
+        <button
+          className="h-nav-hamburger"
+          onClick={() => setMobileOpen(o => !o)}
+          aria-label="메뉴 열기"
+          style={{
+            background: 'none', border: 'none', cursor: 'pointer',
+            width: 40, height: 40, alignItems: 'center', justifyContent: 'center',
+            flexDirection: 'column', gap: 5, padding: 0
+          }}>
+          <span style={{
+            display: 'block', width: 22, height: 2, background: C.navy,
+            transition: 'transform 0.2s',
+            transform: mobileOpen ? 'translateY(7px) rotate(45deg)' : 'none'
+          }} />
+          <span style={{
+            display: 'block', width: 22, height: 2, background: C.navy,
+            opacity: mobileOpen ? 0 : 1, transition: 'opacity 0.2s'
+          }} />
+          <span style={{
+            display: 'block', width: 22, height: 2, background: C.navy,
+            transition: 'transform 0.2s',
+            transform: mobileOpen ? 'translateY(-7px) rotate(-45deg)' : 'none'
+          }} />
+        </button>
       </div>
-    </nav>);
+    </nav>
+
+    {/* Mobile drawer */}
+    <div className={`h-mobile-drawer-overlay${mobileOpen ? ' open' : ''}`} onClick={() => setMobileOpen(false)} />
+    <div className={`h-mobile-drawer${mobileOpen ? ' open' : ''}`}>
+      <div style={{ padding: '20px 16px 80px' }}>
+        {NAV_LINKS.map((link, i) => (
+          <div key={i} style={{ borderBottom: `1px solid ${C.borderLight}` }}>
+            {link.sub ? (
+              <React.Fragment>
+                <button
+                  onClick={() => setMobileExpanded(m => ({ ...m, [i]: !m[i] }))}
+                  style={{
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                    width: '100%', padding: '16px 8px', background: 'none', border: 'none',
+                    cursor: 'pointer', fontFamily: "'Noto Sans KR', sans-serif",
+                    fontSize: 16, fontWeight: 600,
+                    color: isActive(link) ? C.navy : C.text,
+                    textAlign: 'left'
+                  }}>
+                  <span>{link.label}</span>
+                  <span style={{ fontSize: 12, color: C.textMuted, transition: 'transform 0.2s', transform: mobileExpanded[i] ? 'rotate(180deg)' : 'none' }}>▾</span>
+                </button>
+                {mobileExpanded[i] && (
+                  <div style={{ paddingBottom: 12 }}>
+                    {link.sub.map((s, j) => (
+                      <button key={j} onClick={() => goMobile(s.page)} style={{
+                        display: 'block', width: '100%', textAlign: 'left',
+                        padding: '12px 24px', background: 'none', border: 'none', cursor: 'pointer',
+                        fontFamily: "'Noto Sans KR', sans-serif", fontSize: 14,
+                        color: currentPage === s.page ? C.coral : C.textMuted,
+                        fontWeight: currentPage === s.page ? 700 : 400
+                      }}>
+                        · {s.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </React.Fragment>
+            ) : (
+              <button onClick={() => goMobile(link.page)} style={{
+                display: 'block', width: '100%', textAlign: 'left',
+                padding: '16px 8px', background: 'none', border: 'none', cursor: 'pointer',
+                fontFamily: "'Noto Sans KR', sans-serif", fontSize: 16,
+                color: isActive(link) ? C.navy : C.text,
+                fontWeight: isActive(link) ? 700 : 600
+              }}>
+                {link.label}
+              </button>
+            )}
+          </div>
+        ))}
+
+        <div style={{ marginTop: 28, display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <button onClick={() => goMobile('appointment')} style={{
+            background: C.red, color: '#fff', border: 'none',
+            padding: '14px 18px', borderRadius: 4, cursor: 'pointer',
+            fontFamily: "'Noto Sans KR', sans-serif", fontSize: 15, fontWeight: 700
+          }}>응급 예약하기 →</button>
+
+          <div style={{ display: 'flex', gap: 8, marginTop: 4 }}>
+            {['ko', 'en'].map((l) => (
+              <button key={l} onClick={() => setLang(l)} style={{
+                flex: 1, padding: '10px', fontSize: 13, fontWeight: 600,
+                fontFamily: "'Inter', sans-serif", cursor: 'pointer',
+                border: `1px solid ${lang === l ? C.navy : C.border}`,
+                background: lang === l ? C.navy : '#fff',
+                color: lang === l ? '#fff' : C.textMuted,
+                borderRadius: 4
+              }}>
+                {l === 'ko' ? '한국어' : 'English'}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+    </React.Fragment>);
 
 }
 
 function PageHero({ title, subtitle, breadcrumb, onNavigate, theme }) {
   const th = THEMES[theme];
   return (
-    <section style={{
+    <section className="h-page-hero" style={{
       background: th.heroGradient,
       padding: '56px 32px 52px'
     }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         {breadcrumb &&
-        <div style={{
+        <div className="h-page-hero-breadcrumb" style={{
           color: 'rgba(255,255,255,0.45)', fontSize: 12,
           fontFamily: "'Inter', sans-serif", marginBottom: 18,
           display: 'flex', alignItems: 'center', gap: 6
@@ -269,7 +395,7 @@ function PageHero({ title, subtitle, breadcrumb, onNavigate, theme }) {
 function SectionTitle({ children, sub, theme, center = false }) {
   const th = THEMES[theme];
   return (
-    <div style={{ textAlign: center ? 'center' : 'left', marginBottom: 40 }}>
+    <div className="h-section-title" style={{ textAlign: center ? 'center' : 'left', marginBottom: 40 }}>
       <h2 style={{
         fontFamily: th.headingFont, fontSize: 28, fontWeight: 700,
         color: C.navy, marginBottom: sub ? 10 : 0, lineHeight: 1.3
@@ -342,9 +468,9 @@ function Footer({ onNavigate, theme }) {
   { title: '병원 정보', links: [{ label: '의료진 소개', page: 'medical-team' }, { label: '장비 소개', page: 'equipment' }, { label: '오시는 길', page: 'directions' }] }];
 
   return (
-    <footer style={{ background: C.navy, color: '#fff', padding: '60px 32px 32px' }}>
+    <footer className="h-footer" style={{ background: C.navy, color: '#fff', padding: '60px 32px 32px' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, marginBottom: 48 }}>
+        <div className="h-footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, marginBottom: 48 }}>
           <div>
             <div style={{ fontFamily: th.headingFont, fontSize: 18, fontWeight: 800, color: '#fff', marginBottom: 4 }}>서해한결의료원</div>
             <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 20, letterSpacing: '0.03em' }}>화상 · 외상 전문 응급의료기관</div>
@@ -372,7 +498,7 @@ function Footer({ onNavigate, theme }) {
             </div>
           )}
         </div>
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className="h-footer-bottom" style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', fontFamily: "'Inter', sans-serif" }}>
             © 2026 서해한결의료원. All rights reserved. &nbsp;|&nbsp; 사업자등록번호 000-00-00000 &nbsp;|&nbsp; 대표원장: 홍길동
           </p>
