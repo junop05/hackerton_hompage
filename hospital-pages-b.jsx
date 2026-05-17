@@ -333,11 +333,9 @@ function MedicalTeamPage({ onNavigate, theme }) {
 
   const doctors = [
     { name: '박준호', title: '원장', dept: ['er'], deptLabel: '응급의학과', career: '경력 15년', edu: '단국대학교 의과대학 졸업', train: '응급의학과 전문의 자격 취득', awards: ['대한응급의학회 우수 논문상', '보건복지부 표창'], specialties: ['화상 응급 처치', '외상 집중 치료', '소생의학'] },
-    { name: '최준락', title: '원장', dept: ['burn'], deptLabel: '외과', career: '경력 18년', edu: '순천향대학교 의과대학 졸업', train: '외과 세부전문의', awards: ['대한화상학회 학술상'], specialties: ['중증 화상 수술', '피부이식', '화상 재건'] },
     { name: '하태솔', title: '과장', dept: ['recon', 'burn'], deptLabel: '외과', career: '경력 12년', edu: '단국대학교 의과대학 졸업', train: '한림대학교 한강성심병원 외과 전공의 수료', awards: [], specialties: ['흉터 재건', '피부 이식 재건', '화상 응급 수술'] },
     { name: '윤경준', title: '원장', dept: ['ortho'], deptLabel: '정형외과', career: '경력 16년', edu: '단국대학교 의과대학 졸업', train: '정형외과 전문의', awards: ['대한정형외과학회 우수상'], specialties: ['외상성 골절', '대퇴, 무릎 관절 재건'] },
     { name: '박중현', title: '과장', dept: ['ortho'], deptLabel: '정형외과', career: '경력 10년', edu: '순천향대학교 의과대학 졸업', train: '정형외과 전문의', awards: [], specialties: ['사지 관절 골절', '인대파열', '다발성 골절'] },
-    { name: '구민호', title: '전문의', dept: ['internal'], deptLabel: '내과', career: '경력 14년', edu: '충남대학교 의과대학 졸업', train: '소화기내과 세분 전문의', awards: [], specialties: ['소화기 질환', '통증 관리', '중환자 내과'] },
   ];
 
   const filtered = activeDept === 'all' ? doctors : doctors.filter(d => d.dept.includes(activeDept));

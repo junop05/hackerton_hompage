@@ -6,8 +6,7 @@ function HomePage({ onNavigate, theme }) {
   const centers = [
   { icon: '', title: '화상 치료 센터', sub: '중증 화상 집중 치료', desc: '1–3도 화상의 응급 처치부터 피부 이식 재건까지. 외과 의료진 24시간 대기.', page: 'burn-treatment', badge: '외과' },
   { icon: '', title: '외상·응급 센터', sub: '중증 외상 신속 대응', desc: '교통사고, 추락, 다발성 외상 환자의 신속 평가 및 응급 처치. 외상 전문의 상주.', page: 'er-status', badge: '' },
-  { icon: '', title: 'HBOT 고압산소치료', sub: '고압산소 치료 센터', desc: '화상 회복 및 난치성 상처, 감압증 치료를 위한 다인용 고압산소 챔버 운영.', page: 'hbot', badge: 'HBOT' },
-  { icon: '', title: '응급 수술센터', sub: '24시간 응급 수술 가능', desc: '2개 응급 수술실 및 마취과 전문의 상주. CT, MRI 즉시 판독 체계.', page: 'er-status', badge: '응급의학과' }];
+  { icon: '', title: 'HBOT 고압산소치료', sub: '고압산소 치료 센터', desc: '화상 회복 및 난치성 상처, 감압증 치료를 위한 다인용 고압산소 챔버 운영.', page: 'hbot', badge: 'HBOT' }];
 
 
   const doctors = [
@@ -234,7 +233,7 @@ function HomePage({ onNavigate, theme }) {
       <section style={{ padding: '80px 32px', background: th.altBg }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <SectionTitle theme={theme} sub="화상 및 외상 진료센터로 신속하고 정확한 치료를 제공합니다.">진료 센터</SectionTitle>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {centers.map((c, i) =>
             <button key={i} onClick={() => onNavigate(c.page)} style={{
               textAlign: 'left', background: '#fff', padding: '28px 24px',
