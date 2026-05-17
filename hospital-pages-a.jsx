@@ -15,13 +15,6 @@ function HomePage({ onNavigate, theme }) {
   { name: '하태솔', title: '과장', dept: '외과', career: '경력 12년', cred: '한림대학교 한강성심병원 외과 전문의' }];
 
 
-  const stats = [
-  { n: '1,000+', label: '연간 치료 환자' },
-  { n: '98.2%', label: '응급 즉시 처치율' },
-  { n: '24H', label: '응급 운영 체계' },
-  { n: '15년', label: '진료 연수' }];
-
-
   return (
     <div>
       {/* ── Hero ── */}
@@ -127,22 +120,6 @@ function HomePage({ onNavigate, theme }) {
                   응급실 현황 →</button>
               </div>
 
-              {/* Stats row */}
-              <div className="h-hero-stats" style={{
-                display: 'flex', gap: 0, maxWidth: 520,
-                border: '1px solid rgba(255,255,255,0.1)'
-              }}>
-                {stats.map((s, i) =>
-                <div key={i} style={{
-                  flex: 1, padding: '16px 18px',
-                  borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none',
-                  borderTop: `2px solid ${i === 0 ? C.coral : 'transparent'}`
-                }}>
-                    <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 20, fontWeight: 700, color: '#fff', lineHeight: 1 }}>{s.n}</div>
-                    <div style={{ fontFamily: "'Noto Sans KR', sans-serif", fontSize: 10, color: 'rgba(255,255,255,0.5)', marginTop: 5 }}>{s.label}</div>
-                  </div>
-                )}
-              </div>
             </div>
           </div>
 
