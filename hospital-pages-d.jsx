@@ -98,8 +98,8 @@ function MedicalCooperationPage({ onNavigate, theme }) {
                 <div style={{ fontSize: 14, color: C.text, fontFamily: "'Noto Sans KR', sans-serif" }}>응급 핫라인 운영</div>
               </div>
               <div>
-                <div style={{ fontSize: 28, fontWeight: 700, color: C.coral, fontFamily: "'Inter', sans-serif", marginBottom: 6 }}>100%</div>
-                <div style={{ fontSize: 14, color: C.text, fontFamily: "'Noto Sans KR', sans-serif" }}>상시 협진 가능</div>
+                <div style={{ fontSize: 28, fontWeight: 700, color: C.coral, fontFamily: "'Inter', sans-serif", marginBottom: 6 }}>상시</div>
+                <div style={{ fontSize: 14, color: C.text, fontFamily: "'Noto Sans KR', sans-serif" }}>협진 가능</div>
               </div>
             </div>
           </div>

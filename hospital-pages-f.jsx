@@ -10,7 +10,7 @@ function PhilosophyPage({ onNavigate, theme }) {
     },
     {
       title: '전문성 집중',
-      desc: '화상·외상 분야에서 지역 내 최고 수준의 특화 의료를 제공합니다.'
+      desc: '화상·외상 분야에 특화된 의료 서비스를 제공합니다.'
     },
     {
       title: '지역 상생',
@@ -180,7 +180,7 @@ function PhilosophyPage({ onNavigate, theme }) {
             fontSize: 15, color: C.textMuted, fontFamily: "'Noto Sans KR', sans-serif",
             marginBottom: 28
           }}>
-            24시간 응급 대응 체계, 전문 의료진, 지역 협력 네트워크로 환자분의 신뢰에 응하겠습니다.
+            24시간 응급 대응 체계, 의료진, 지역 협력 네트워크로 환자분의 신뢰에 응하겠습니다.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <button

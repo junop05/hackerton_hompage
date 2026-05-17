@@ -44,7 +44,7 @@ const THEMES = {
 
 const NAV_LINKS = [
 {
-  label: '전문 센터',
+  label: '진료 센터',
   sub: [
   { label: '화상 치료 센터', page: 'burn-treatment' },
   { label: 'HBOT 고압산소치료', page: 'hbot' }]
@@ -159,7 +159,7 @@ function Navigation({ currentPage, onNavigate, lang, setLang, theme }) {
           <div className="h-nav-logo-sub" style={{
             fontFamily: "'Noto Sans KR', sans-serif", fontSize: 10,
             color: C.textMuted, letterSpacing: '0.04em'
-          }}>화상 · 외상 전문 응급의료기관</div>
+          }}>화상 · 외상 응급의료기관</div>
         </button>
 
         {/* Nav links (desktop) */}
@@ -463,7 +463,7 @@ function DocAvatar({ name, size = 80 }) {
 function Footer({ onNavigate, theme }) {
   const th = THEMES[theme];
   const cols = [
-  { title: '전문 센터', links: [{ label: '화상 치료 센터', page: 'burn-treatment' }, { label: 'HBOT 고압산소치료', page: 'hbot' }, { label: '응급수술센터', page: 'er-status' }] },
+  { title: '진료 센터', links: [{ label: '화상 치료 센터', page: 'burn-treatment' }, { label: 'HBOT 고압산소치료', page: 'hbot' }, { label: '응급수술센터', page: 'er-status' }] },
   { title: '진료 안내', links: [{ label: '온라인 예약', page: 'appointment' }, { label: '응급실 현황', page: 'er-status' }, { label: '산재 보험 안내', page: 'workers-comp' }] },
   { title: '병원 정보', links: [{ label: '의료진 소개', page: 'medical-team' }, { label: '장비 소개', page: 'equipment' }, { label: '오시는 길', page: 'directions' }] }];
 
@@ -473,7 +473,7 @@ function Footer({ onNavigate, theme }) {
         <div className="h-footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, marginBottom: 48 }}>
           <div>
             <div style={{ fontFamily: th.headingFont, fontSize: 18, fontWeight: 800, color: '#fff', marginBottom: 4 }}>서해한결의료원</div>
-            <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 20, letterSpacing: '0.03em' }}>화상 · 외상 전문 응급의료기관</div>
+            <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 20, letterSpacing: '0.03em' }}>화상 · 외상 응급의료기관</div>
             <address style={{ fontStyle: 'normal', fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.9, fontFamily: "'Noto Sans KR', sans-serif" }}>
               서산시 00길 00<br />
               대표 ☎ 041-0000-0000<br />

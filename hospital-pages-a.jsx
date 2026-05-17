@@ -4,23 +4,23 @@ function HomePage({ onNavigate, theme }) {
   const th = THEMES[theme];
 
   const centers = [
-  { icon: '', title: '화상 치료 센터', sub: '중증 화상 전문 집중 치료', desc: '1–3도 화상의 응급 처치부터 피부 이식 재건까지. 전문 화상외과 의료진 24시간 대기.', page: 'burn-treatment', badge: '화상외과' },
-  { icon: '', title: '외상·응급 센터', sub: '중증 외상 골든타임 확보', desc: '교통사고, 추락, 다발성 외상 환자의 신속 평가 및 응급 처치. 외상 전문의 상주.', page: 'er-status', badge: '외상외과' },
-  { icon: '', title: 'HBOT 고압산소치료', sub: '고압산소 치료 전문 센터', desc: '화상 회복 및 난치성 상처, 감압증 치료를 위한 다인용 고압산소 챔버 운영.', page: 'hbot', badge: 'HBOT' },
+  { icon: '', title: '화상 치료 센터', sub: '중증 화상 집중 치료', desc: '1–3도 화상의 응급 처치부터 피부 이식 재건까지. 외과 의료진 24시간 대기.', page: 'burn-treatment', badge: '외과' },
+  { icon: '', title: '외상·응급 센터', sub: '중증 외상 골든타임 확보', desc: '교통사고, 추락, 다발성 외상 환자의 신속 평가 및 응급 처치. 외상 전문의 상주.', page: 'er-status', badge: '' },
+  { icon: '', title: 'HBOT 고압산소치료', sub: '고압산소 치료 센터', desc: '화상 회복 및 난치성 상처, 감압증 치료를 위한 다인용 고압산소 챔버 운영.', page: 'hbot', badge: 'HBOT' },
   { icon: '', title: '응급 수술센터', sub: '24시간 응급 수술 가능', desc: '2개 응급 수술실 및 마취과 전문의 상주. CT, MRI 즉시 판독 체계.', page: 'er-status', badge: '응급의학과' }];
 
 
   const doctors = [
   { name: '박준호', title: '원장', dept: '응급의학과 전문의', career: '경력 15년', cred: '단국대의대 응급의학 전공의 수료' },
-  { name: '최준락', title: '원장', dept: '화상외과 전문의', career: '경력 18년', cred: '순천향의대 외과학 박사' },
-  { name: '하태솔', title: '과장', dept: '화상재건외과', career: '경력 12년', cred: '한림대학교 한강성심병원 화상외과 전문의' }];
+  { name: '최준락', title: '원장', dept: '외과 전문의', career: '경력 18년', cred: '순천향의대 외과학 박사' },
+  { name: '하태솔', title: '과장', dept: '외과', career: '경력 12년', cred: '한림대학교 한강성심병원 외과 전문의' }];
 
 
   const stats = [
   { n: '1,000+', label: '연간 치료 환자' },
   { n: '98.2%', label: '화상 골든 타임내 시술' },
   { n: '24H', label: '응급 운영 체계' },
-  { n: '15년', label: '전문 진료 연수' }];
+  { n: '15년', label: '진료 연수' }];
 
 
   return (
@@ -95,15 +95,15 @@ function HomePage({ onNavigate, theme }) {
                 fontSize: 18, color: 'rgba(255,255,255,0.65)',
                 fontFamily: "'Noto Sans KR', sans-serif", fontWeight: 300,
                 marginBottom: 24, letterSpacing: '0.06em'
-              }}>화상 · 외상 전문 응급의료기관</div>
+              }}>화상 · 외상 응급의료기관</div>
 
               <p style={{
                 fontSize: 15, color: 'rgba(255,255,255,0.6)',
                 fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.8,
                 marginBottom: 40
               }}>
-                중증 화상 및 외상 환자를 위한 24시간 전문 응급의료기관.<br />
-                최고 수준의 의료진과 첨단 장비로 서해안의 골든타임을 지킵니다.
+                중증 화상 및 외상 환자를 위한 24시간 진료 응급의료기관.<br />
+                서해안의 골든타임을 지킵니다.
               </p>
 
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 40 }}>
@@ -233,7 +233,7 @@ function HomePage({ onNavigate, theme }) {
       {/* ── Specialist Centers ── */}
       <section style={{ padding: '80px 32px', background: th.altBg }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <SectionTitle theme={theme} sub="화상 및 외상 전문 진료센터로 신속하고 정확한 치료를 제공합니다.">전문 센터</SectionTitle>
+          <SectionTitle theme={theme} sub="화상 및 외상 진료센터로 신속하고 정확한 치료를 제공합니다.">진료 센터</SectionTitle>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
             {centers.map((c, i) =>
             <button key={i} onClick={() => onNavigate(c.page)} style={{
@@ -270,7 +270,7 @@ function HomePage({ onNavigate, theme }) {
       <section style={{ padding: '80px 32px', background: '#fff' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 40 }}>
-            <SectionTitle theme={theme} sub="각 분야 최고 전문의가 직접 진료합니다.">전문 의료진</SectionTitle>
+            <SectionTitle theme={theme} sub="각 분야 전문의가 직접 진료합니다.">의료진</SectionTitle>
             <button onClick={() => onNavigate('medical-team')} style={{
               background: 'none', border: `1px solid ${C.border}`, color: C.textMuted,
               padding: '9px 18px', borderRadius: 4, cursor: 'pointer',
@@ -388,8 +388,8 @@ function ERStatusPage({ onNavigate, theme }) {
 
   const staff = [
   { name: '박준호', title: '원장', dept: '응급의학과', status: '진료 중', color: C.success },
-  { name: '최준락', title: '원장', dept: '화상외과', status: '진료 중', color: C.success },
-  { name: '하태솔', title: '과장', dept: '화상재건외과', status: '대기 중', color: C.success },
+  { name: '최준락', title: '원장', dept: '외과', status: '진료 중', color: C.success },
+  { name: '하태솔', title: '과장', dept: '외과', status: '대기 중', color: C.success },
   { name: '윤경준', title: '원장', dept: '정형외과', status: '진료 중', color: C.success }];
 
 
@@ -405,7 +405,7 @@ function ERStatusPage({ onNavigate, theme }) {
   const steps = [
   { n: '01', title: '접수 및 예진', desc: '응급실 입구 원무팀에서 접수 후 예진(Triage)을 받습니다.' },
   { n: '02', title: '진료 및 검사', desc: '중증도 순위에 따라 의료진의 진료와 필요한 응급 검사가 진행됩니다.' },
-  { n: '03', title: '입원 또는 귀가', desc: '검사 결과에 따라 전문 센터로의 입원 결정 또는 처방 후 귀가합니다.' }];
+  { n: '03', title: '입원 또는 귀가', desc: '검사 결과에 따라 해당 센터로의 입원 결정 또는 처방 후 귀가합니다.' }];
 
 
   return (
@@ -580,15 +580,14 @@ function HBOTPage({ onNavigate, theme }) {
   const th = THEMES[theme];
 
   const features = [
-    { title: '다인용 고압산소 챔버', desc: '최대 12인 동시 치료 가능한 첨단 장비로 안전하고 효율적인 치료를 제공합니다.' },
+    { title: '다인용 고압산소 챔버', desc: '최대 12인 동시 치료 가능한 장비로 안전하고 효율적인 치료를 제공합니다.' },
     { title: '난치성 상처 치료', desc: '당뇨성 족부궤양, 화상 후유증, 골수염 등 난치성 상처의 조직 재생을 촉진합니다.' },
     { title: '감압증 응급 치료', desc: '잠수병, 가스색전증 등 감압증 환자를 위한 24시간 긴급 치료 시스템을 운영합니다.' },
-    { title: '화상 회복 가속화', desc: 'HBOT 치료로 화상 환자의 상처 치유 기간을 단축하고 재감염 위험을 감소시킵니다.' }
+    { title: '화상 회복 보조', desc: '화상 환자의 회복을 보조하기 위한 HBOT 치료를 시행합니다.' }
   ];
 
   const stats = [
-    { n: '500+', label: '연간 HBOT 치료' },
-    { n: '92%', label: '상처 치유 성공률' },
+    { n: '500+', label: '연간 HBOT 치료 건수' },
     { n: '24H', label: '응급 치료 운영' },
     { n: '12인', label: '동시 치료 가능' }
   ];
@@ -597,7 +596,7 @@ function HBOTPage({ onNavigate, theme }) {
     <div>
       <PageHero
         title="HBOT 고압산소치료"
-        subtitle="첨단 고압산소 치료로 난치성 상처를 치유합니다."
+        subtitle="난치성 상처 치료에 활용되는 고압산소 치료를 시행합니다."
         breadcrumb={[{ label: '홈', page: 'home' }, { label: 'HBOT' }]}
         onNavigate={onNavigate} theme={theme} />
 
@@ -640,7 +639,7 @@ function HBOTPage({ onNavigate, theme }) {
                 fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.8,
                 marginBottom: 32
               }}>
-                최첨단 다인용 고압산소 챔버를 통해 화상 회복, 난치성 상처, 감압증을 안전하고 효과적으로 치료합니다. 전문 의료진이 24시간 대기하고 있습니다.
+                다인용 고압산소 챔버를 통해 화상 회복, 난치성 상처, 감압증 치료를 진행합니다. 의료진이 24시간 대기하고 있습니다.
               </p>
 
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
@@ -706,7 +705,7 @@ function HBOTPage({ onNavigate, theme }) {
                 fontSize: 14, color: C.textMuted, lineHeight: 1.8,
                 fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 28
               }}>
-                고압산소치료는 특수 챔버 안에서 대기압보다 높은 기압(2-3 ATA) 환경에 100% 순수 산소를 공급하는 치료법입니다.
+                고압산소치료는 특수 챔버 안에서 대기압보다 높은 기압(2-3 ATA) 환경에 순수 산소를 공급하는 치료법입니다.
               </p>
               <p style={{
                 fontSize: 14, color: C.textMuted, lineHeight: 1.8,
@@ -841,7 +840,7 @@ function HBOTPage({ onNavigate, theme }) {
             fontSize: 15, color: 'rgba(255,255,255,0.6)', marginBottom: 32,
             fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.7
           }}>
-            전문 의료진이 상담 후 맞춤형 치료 계획을 수립해드립니다.
+            의료진이 상담 후 맞춤형 치료 계획을 수립해드립니다.
           </p>
           <button onClick={() => onNavigate('appointment')} style={{
             background: C.red, color: '#fff', border: 'none', padding: '14px 32px',

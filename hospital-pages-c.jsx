@@ -44,8 +44,8 @@ function BurnTreatmentPage({ onNavigate, theme }) {
     <div>
       <PageHero
         title="화상 치료 센터"
-        subtitle="중증 화상 전문 응급 처치부터 재건 수술까지. 빠른 치료로 흉터를 최소화합니다."
-        breadcrumb={[{ label: '홈', page: 'home' }, { label: '전문 센터' }, { label: '화상 치료 센터' }]}
+        subtitle="중증 화상 응급 처치부터 재건 수술까지. 빠른 치료로 흉터를 최소화합니다."
+        breadcrumb={[{ label: '홈', page: 'home' }, { label: '진료 센터' }, { label: '화상 치료 센터' }]}
         onNavigate={onNavigate} theme={theme} />
       
 
@@ -128,7 +128,7 @@ function BurnTreatmentPage({ onNavigate, theme }) {
         <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <h3 style={{ fontFamily: th.headingFont, fontSize: 22, fontWeight: 700, color: '#fff', marginBottom: 8 }}>HBOT 고압산소 병행 치료</h3>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.65)', fontFamily: "'Noto Sans KR', sans-serif" }}>고압산소치료는 화상 창상 치유를 가속화하고 감염 예방에 효과적입니다.</p>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.65)', fontFamily: "'Noto Sans KR', sans-serif" }}>고압산소치료는 화상 창상 회복 보조 및 감염 관리에 활용됩니다.</p>
           </div>
           <button onClick={() => onNavigate('hbot')} style={{
             background: C.coral, color: '#fff', border: 'none', padding: '14px 28px',
@@ -163,7 +163,7 @@ function HBOTPage({ onNavigate, theme }) {
   { label: '최대 수용', value: '3인 동시 치료' },
   { label: '치료 압력', value: '2.0–3.0 ATA' },
   { label: '표준 치료 시간', value: '90–120분 / 1회' },
-  { label: '산소 농도', value: '100% 순수 산소' },
+  { label: '산소 농도', value: '순수 산소' },
   { label: '내부 의료진', value: '텐더 상주' }];
 
 
@@ -178,8 +178,8 @@ function HBOTPage({ onNavigate, theme }) {
     <div>
       <PageHero
         title="HBOT 고압산소치료 센터"
-        subtitle="100% 순수 산소를 고압 환경에서 공급하여 창상 치유를 가속화하고 감염을 예방합니다."
-        breadcrumb={[{ label: '홈', page: 'home' }, { label: '전문 센터' }, { label: 'HBOT 고압산소치료' }]}
+        subtitle="순수 산소를 고압 환경에서 공급하여 창상 회복 보조에 활용되는 치료입니다."
+        breadcrumb={[{ label: '홈', page: 'home' }, { label: '진료 센터' }, { label: 'HBOT 고압산소치료' }]}
         onNavigate={onNavigate} theme={theme} />
       
 
@@ -189,7 +189,7 @@ function HBOTPage({ onNavigate, theme }) {
           <div>
             <SectionTitle theme={theme} sub="고압산소치료(Hyperbaric Oxygen Therapy)">HBOT란?</SectionTitle>
             <p style={{ fontSize: 15, color: C.textMuted, fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.9, marginBottom: 20 }}>
-              고압산소치료는 특수 챔버 안에서 대기압보다 높은 기압(2–3 ATA) 환경에 100% 순수 산소를 공급하는 치료법입니다.
+              고압산소치료는 특수 챔버 안에서 대기압보다 높은 기압(2–3 ATA) 환경에 순수 산소를 공급하는 치료법입니다.
             </p>
             <p style={{ fontSize: 15, color: C.textMuted, fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.9, marginBottom: 28 }}>
               혈액 내 산소 용해량을 극대화하여 손상된 조직에 산소를 풍부하게 공급, 세포 재생과 감염 억제 효과를 동시에 제공합니다.
@@ -230,7 +230,7 @@ function HBOTPage({ onNavigate, theme }) {
       {/* Indications */}
       <section style={{ padding: '60px 32px', background: '#fff' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <SectionTitle theme={theme} sub="다음 질환에 고압산소치료가 효과적입니다.">치료 적응증</SectionTitle>
+          <SectionTitle theme={theme} sub="다음 질환에 고압산소치료가 활용됩니다.">치료 적응증</SectionTitle>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {indications.map((ind, i) =>
             <div key={i} style={{ padding: '24px', background: C.bg, borderRadius: 6, border: `1px solid ${C.borderLight}`, display: 'flex', gap: 16, alignItems: 'flex-start' }}>
@@ -306,13 +306,13 @@ function EquipmentPage({ onNavigate, theme }) {
 
 
   const equipment = [
-  { name: '128ch-CT 스캐너', spec: '대학병원급 장비', category: 'imaging', status: '정상 가동', desc: '0.27mm 초박층 단면 촬영. 외상 환자 즉시 판독 체계.' },
+  { name: '128ch-CT 스캐너', spec: '128채널 멀티슬라이스', category: 'imaging', status: '정상 가동', desc: '0.27mm 초박층 단면 촬영. 외상 환자 즉시 판독 체계.' },
   { name: '외상 초음파', spec: '심장, 장기 외상성 초음파', category: 'imaging', status: '사용 가능', desc: '연조직 및 신경계 영상 진단.' },
   { name: 'Digital X-ray', spec: '2대 운영 중', category: 'imaging', status: '정상 가동', desc: '이동식 포함. 응급실·수술실·병동 즉시 촬영.' },
   { name: '혈관조영장비 (DSA)', spec: 'Biplane 방식', category: 'imaging', status: '정상 가동', desc: '외상성 혈관 손상 즉시 진단 및 색전술 가능.' },
   { name: '응급 수술실 (OR1)', spec: '층류 공기 정화', category: 'surgery', status: '사용 중', desc: '화상·외상 전용 수술실. 마취과 전문의 24시간 상주.' },
   { name: '응급 수술실 (OR2)', spec: '층류 공기 정화', category: 'surgery', status: '대기 가능', desc: '동시 응급 수술 대응 가능한 2번째 수술실.' },
-  { name: '고압산소 챔버', spec: '3인용 다인용', category: 'burn', status: '운영 중', desc: '100% 순수 산소. 화상·감압증·CO 중독 치료.' },
+  { name: '고압산소 챔버', spec: '3인용 다인용', category: 'burn', status: '운영 중', desc: '순수 산소 공급. 화상·감압증·CO 중독 치료.' },
   { name: '레이저 치료기', spec: 'CO₂ / Er:YAG', category: 'burn', status: '사용 가능', desc: '화상 흉터 및 창상 치료 전문 레이저 시스템.' },
   { name: '음압창상치료 (VAC)', spec: '이동형 다수 보유', category: 'burn', status: '사용 가능', desc: '만성 창상 및 심부 화상 창상 폐쇄 치료.' },
   { name: '중환자 모니터', spec: '단국대 권역외상센터 연동', category: 'monitoring', status: '정상 가동', desc: '응급실 활력징후 실시간 중앙 모니터링. 경보 시스템 연동.' },
@@ -326,7 +326,7 @@ function EquipmentPage({ onNavigate, theme }) {
     <div>
       <PageHero
         title="의료 장비 소개"
-        subtitle="최첨단 장비와 즉각적인 가동 체계로 응급 환자에게 최고의 치료를 제공합니다."
+        subtitle="장비와 즉각적인 가동 체계로 응급 환자에게 신속한 치료를 제공합니다."
         breadcrumb={[{ label: '홈', page: 'home' }, { label: '장비 소개' }]}
         onNavigate={onNavigate} theme={theme} />
       
