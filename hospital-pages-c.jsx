@@ -300,7 +300,6 @@ function EquipmentPage({ onNavigate, theme }) {
   const categories = [
   { id: 'all', label: '전체' },
   { id: 'imaging', label: '영상 진단' },
-  { id: 'surgery', label: '수술·시술' },
   { id: 'burn', label: '화상 치료' },
   { id: 'monitoring', label: '모니터링' }];
 
@@ -309,13 +308,9 @@ function EquipmentPage({ onNavigate, theme }) {
   { name: '128ch-CT', spec: '128채널 멀티슬라이스', category: 'imaging', status: '정상 가동' },
   { name: '외상 초음파', spec: '심장, 장기 외상성 초음파', category: 'imaging', status: '사용 가능' },
   { name: 'Digital X-ray', spec: '2대 운영 중', category: 'imaging', status: '정상 가동' },
-  { name: '혈관조영장비 (DSA)', spec: 'Biplane 방식', category: 'imaging', status: '정상 가동' },
-  { name: '응급 수술실 (OR1)', spec: '층류 공기 정화', category: 'surgery', status: '사용 중' },
-  { name: '응급 수술실 (OR2)', spec: '층류 공기 정화', category: 'surgery', status: '대기 가능' },
+  { name: 'C-arm', spec: '이동식 실시간 투시 영상장비', category: 'imaging', status: '정상 가동' },
   { name: '고압산소 챔버', spec: '3인용 다인용', category: 'burn', status: '운영 중' },
   { name: '레이저 치료기', spec: 'CO₂ / Er:YAG', category: 'burn', status: '사용 가능' },
-  { name: '음압창상치료 (VAC)', spec: '이동형 다수 보유', category: 'burn', status: '사용 가능' },
-  { name: '중환자 모니터', spec: '단국대 권역외상센터 연동', category: 'monitoring', status: '정상 가동' },
   { name: '인공호흡기', spec: '4대 보유', category: 'monitoring', status: '정상 가동' },
   { name: '내시경 진단기', spec: '검진, 소화기 질환 전용', category: 'imaging', status: '예약 필요' }];
 
