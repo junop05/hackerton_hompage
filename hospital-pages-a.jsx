@@ -580,7 +580,7 @@ function HBOTPage({ onNavigate, theme }) {
   const th = THEMES[theme];
 
   const features = [
-    { title: '다인용 고압산소 챔버', desc: '최대 12인 동시 치료 가능한 장비로 안전하고 효율적인 치료를 제공합니다.' },
+    { title: '다인용 고압산소 챔버', desc: '3인 동시 치료가 가능한 다인용 챔버를 식약처 허가 범위 내 적응증에 운영합니다.' },
     { title: '난치성 상처 치료', desc: '당뇨성 족부궤양, 화상 후유증, 골수염 등 난치성 상처의 조직 재생을 촉진합니다.' },
     { title: '감압증 응급 치료', desc: '잠수병, 가스색전증 등 감압증 환자를 위한 24시간 긴급 치료 시스템을 운영합니다.' },
     { title: '화상 회복 보조', desc: '화상 환자의 회복을 보조하기 위한 HBOT 치료를 시행합니다.' }
@@ -589,7 +589,7 @@ function HBOTPage({ onNavigate, theme }) {
   const stats = [
     { n: '500+', label: '연간 HBOT 치료 건수' },
     { n: '24H', label: '응급 치료 운영' },
-    { n: '12인', label: '동시 치료 가능' }
+    { n: '3인', label: '동시 치료 가능' }
   ];
 
   return (
@@ -632,7 +632,7 @@ function HBOTPage({ onNavigate, theme }) {
                 fontSize: 'clamp(32px, 4vw, 50px)',
                 fontWeight: 800, color: '#fff',
                 lineHeight: 1.2, marginBottom: 20, letterSpacing: '-0.02em'
-              }}>고압산소 치료의 선두주자</h2>
+              }}>다인용 고압산소 챔버 운영</h2>
 
               <p style={{
                 fontSize: 16, color: 'rgba(255,255,255,0.75)',
@@ -705,13 +705,13 @@ function HBOTPage({ onNavigate, theme }) {
                 fontSize: 14, color: C.textMuted, lineHeight: 1.8,
                 fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 28
               }}>
-                고압산소치료는 특수 챔버 안에서 대기압보다 높은 기압(2-3 ATA) 환경에 순수 산소를 공급하는 치료법입니다.
+                고압산소치료는 특수 챔버 안에서 대기압보다 높은 기압(2-3 ATA) 환경에 의료용 산소를 공급하는 치료법입니다.
               </p>
               <p style={{
                 fontSize: 14, color: C.textMuted, lineHeight: 1.8,
                 fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 28
               }}>
-                혈액 내 산소 용해도를 극대화하여 손상된 조직에 산소를 공급하게 되어, 세포 재생과 감염 억제 효과를 동시에 제공합니다.
+                고압 환경에서 공급된 산소는 혈장에 용해되어 조직에 전달되며, 창상 회복 보조 등에 활용되는 치료법입니다.
               </p>
 
               <div style={{
@@ -721,32 +721,32 @@ function HBOTPage({ onNavigate, theme }) {
                   <div style={{
                     fontSize: 28, fontWeight: 800, color: C.red,
                     fontFamily: "'Inter', sans-serif", marginBottom: 4
-                  }}>최대<br />2000%</div>
+                  }}>2–3<br />ATA</div>
                   <div style={{
                     fontSize: 12, color: C.textMuted,
                     fontFamily: "'Noto Sans KR', sans-serif"
-                  }}>혈중 산소 증가</div>
+                  }}>치료 압력</div>
                 </div>
                 <div>
                   <div style={{
                     fontSize: 24, fontWeight: 700, color: C.red,
                     fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 4
-                  }}>최대<br />40% 향상</div>
+                  }}>90–120<br />분 / 1회</div>
                   <div style={{
                     fontSize: 12, color: C.textMuted,
                     fontFamily: "'Noto Sans KR', sans-serif"
-                  }}>상처 치유 속도 향상</div>
+                  }}>표준 치료 시간</div>
                 </div>
               </div>
               <div style={{ marginTop: 24 }}>
                 <div style={{
                   fontSize: 14, fontWeight: 700, color: C.red,
                   fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 4
-                }}>임상 입증</div>
+                }}>다인용 챔버</div>
                 <div style={{
                   fontSize: 13, color: C.textMuted,
                   fontFamily: "'Noto Sans KR', sans-serif"
-                }}>감염 억제 효과</div>
+                }}>3인 동시 치료 가능</div>
               </div>
             </div>
 
@@ -779,7 +779,7 @@ function HBOTPage({ onNavigate, theme }) {
       {/* Features */}
       <section style={{ padding: '80px 32px', background: th.altBg }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <SectionTitle theme={theme} sub="다양한 질환의 치료와 회복을 돕습니다.">HBOT 치료 효과</SectionTitle>
+          <SectionTitle theme={theme} sub="다음 질환에 고압산소치료가 활용됩니다.">HBOT 적응증</SectionTitle>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 32 }}>
             {features.map((f, i) =>
             <div key={i} style={{

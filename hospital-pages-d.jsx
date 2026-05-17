@@ -27,14 +27,14 @@ function MedicalCooperationPage({ onNavigate, theme }) {
     {
       name: '순천향대 천안병원',
       type: '영상·진단협진',
-      desc: '고급 영상진단 및 특화 진료 지원',
+      desc: '영상진단 및 협진 지원',
       features: ['MRI 협진', '혈관조영 협력', '신경외과 자문'],
       contact: '041-0000-0000'
     },
     {
       name: '근로복지공단',
       type: '산재 연계',
-      desc: '산업재해 환자 전문 요양 및 재활',
+      desc: '산업재해 환자 요양 및 재활 연계',
       features: ['산재 승인 신청', '요양병원 연계', '재활센터 협력'],
       contact: '1545-0100'
     }

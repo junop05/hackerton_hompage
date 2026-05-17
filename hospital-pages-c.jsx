@@ -25,7 +25,7 @@ function BurnTreatmentPage({ onNavigate, theme }) {
     label: '3도 화상', color: C.red, sub: '전층 화상',
     symptoms: ['피부 탄화·괴사', '통증 없음 (신경 손상)', '가죽 같은 질감', '심각한 부종'],
     treatment: ['즉시 응급 처치 필수', '수액 소생 치료', '피부 이식 수술', 'HBOT 병행 치료'],
-    note: '생명을 위협하는 중증 화상. 즉시 119 신고 및 전문 응급기관 이송 필요.'
+    note: '생명을 위협하는 중증 화상. 즉시 119 신고 및 응급의료기관 이송 필요.'
   }];
 
 
@@ -33,8 +33,8 @@ function BurnTreatmentPage({ onNavigate, theme }) {
   { n: '01', title: '응급 접수', desc: '응급실 도착 즉시 화상 면적(TBSA) 및 중증도 평가 (1~3도, 위치, 원인).' },
   { n: '02', title: '초기 응급 처치', desc: '수액 소생, 기도 확보, 창상 냉각·드레싱. 필요 시 진통제 투여.' },
   { n: '03', title: '정밀 검사', desc: 'CT·혈액검사로 흡입 손상, 감염, 전해질 이상 확인.' },
-  { n: '04', title: '수술 및 치료', desc: '가피 절개, 피부 이식, 창상 봉합 등 전문 화상 수술 진행.' },
-  { n: '05', title: 'HBOT 병행', desc: '산소 공급을 통한 창상 치유 촉진 및 감염 예방.' },
+  { n: '04', title: '수술 및 치료', desc: '가피 절개, 피부 이식, 창상 봉합 등 화상 수술을 진행합니다.' },
+  { n: '05', title: 'HBOT 병행', desc: '필요 시 고압산소치료를 병행하여 창상 회복을 보조합니다.' },
   { n: '06', title: '재활·추적 관리', desc: '흉터 관리, 물리치료, 심리 상담을 포함한 통합 재활 프로그램.' }];
 
 
@@ -44,7 +44,7 @@ function BurnTreatmentPage({ onNavigate, theme }) {
     <div>
       <PageHero
         title="화상 치료 센터"
-        subtitle="중증 화상 응급 처치부터 재건 수술까지. 빠른 치료로 흉터를 최소화합니다."
+        subtitle="중증 화상 응급 처치부터 재건 수술까지 진료합니다."
         breadcrumb={[{ label: '홈', page: 'home' }, { label: '진료 센터' }, { label: '화상 치료 센터' }]}
         onNavigate={onNavigate} theme={theme} />
       
@@ -163,7 +163,7 @@ function HBOTPage({ onNavigate, theme }) {
   { label: '최대 수용', value: '3인 동시 치료' },
   { label: '치료 압력', value: '2.0–3.0 ATA' },
   { label: '표준 치료 시간', value: '90–120분 / 1회' },
-  { label: '산소 농도', value: '순수 산소' },
+  { label: '공급 산소', value: '의료용 산소 (식약처 허가 규격)' },
   { label: '내부 의료진', value: '텐더 상주' }];
 
 
@@ -178,7 +178,7 @@ function HBOTPage({ onNavigate, theme }) {
     <div>
       <PageHero
         title="HBOT 고압산소치료 센터"
-        subtitle="순수 산소를 고압 환경에서 공급하여 창상 회복 보조에 활용되는 치료입니다."
+        subtitle="고압 환경에서 의료용 산소를 공급하여 창상 회복 보조에 활용되는 치료입니다."
         breadcrumb={[{ label: '홈', page: 'home' }, { label: '진료 센터' }, { label: 'HBOT 고압산소치료' }]}
         onNavigate={onNavigate} theme={theme} />
       
@@ -189,15 +189,15 @@ function HBOTPage({ onNavigate, theme }) {
           <div>
             <SectionTitle theme={theme} sub="고압산소치료(Hyperbaric Oxygen Therapy)">HBOT란?</SectionTitle>
             <p style={{ fontSize: 15, color: C.textMuted, fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.9, marginBottom: 20 }}>
-              고압산소치료는 특수 챔버 안에서 대기압보다 높은 기압(2–3 ATA) 환경에 순수 산소를 공급하는 치료법입니다.
+              고압산소치료는 특수 챔버 안에서 대기압보다 높은 기압(2–3 ATA) 환경에 의료용 산소를 공급하는 치료법입니다.
             </p>
             <p style={{ fontSize: 15, color: C.textMuted, fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.9, marginBottom: 28 }}>
-              혈액 내 산소 용해량을 극대화하여 손상된 조직에 산소를 풍부하게 공급, 세포 재생과 감염 억제 효과를 동시에 제공합니다.
+              고압 환경에서 공급된 산소는 혈장에 용해되어 조직에 전달되며, 창상 회복 보조 등에 활용되는 치료법입니다.
             </p>
             {[
-            { label: '혈중 산소 증가', value: '최대 2000%' },
-            { label: '창상 치유 속도 향상', value: '최대 40% 향상' },
-            { label: '감염 억제 효과', value: '임상 입증' }].
+            { label: '치료 압력', value: '2–3 ATA' },
+            { label: '표준 치료 시간', value: '90–120분 / 1회' },
+            { label: '다인용 챔버', value: '3인 동시 치료' }].
             map((s, i) =>
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '10px 0', borderBottom: `1px solid ${C.borderLight}` }}>
                 <span style={{ fontSize: 18, fontWeight: 800, color: C.coral, fontFamily: "'Inter', sans-serif", width: 80 }}>{s.value}</span>
@@ -309,11 +309,11 @@ function EquipmentPage({ onNavigate, theme }) {
   { name: '128ch-CT 스캐너', spec: '128채널 멀티슬라이스', category: 'imaging', status: '정상 가동', desc: '0.27mm 초박층 단면 촬영. 외상 환자 즉시 판독 체계.' },
   { name: '외상 초음파', spec: '심장, 장기 외상성 초음파', category: 'imaging', status: '사용 가능', desc: '연조직 및 신경계 영상 진단.' },
   { name: 'Digital X-ray', spec: '2대 운영 중', category: 'imaging', status: '정상 가동', desc: '이동식 포함. 응급실·수술실·병동 즉시 촬영.' },
-  { name: '혈관조영장비 (DSA)', spec: 'Biplane 방식', category: 'imaging', status: '정상 가동', desc: '외상성 혈관 손상 즉시 진단 및 색전술 가능.' },
-  { name: '응급 수술실 (OR1)', spec: '층류 공기 정화', category: 'surgery', status: '사용 중', desc: '화상·외상 전용 수술실. 마취과 전문의 24시간 상주.' },
+  { name: '혈관조영장비 (DSA)', spec: 'Biplane 방식', category: 'imaging', status: '정상 가동', desc: '혈관 영상 검사 및 색전술 시술에 활용되는 영상 장비.' },
+  { name: '응급 수술실 (OR1)', spec: '층류 공기 정화', category: 'surgery', status: '사용 중', desc: '화상·외상 수술실. 마취과 전문의 24시간 상주.' },
   { name: '응급 수술실 (OR2)', spec: '층류 공기 정화', category: 'surgery', status: '대기 가능', desc: '동시 응급 수술 대응 가능한 2번째 수술실.' },
-  { name: '고압산소 챔버', spec: '3인용 다인용', category: 'burn', status: '운영 중', desc: '순수 산소 공급. 화상·감압증·CO 중독 치료.' },
-  { name: '레이저 치료기', spec: 'CO₂ / Er:YAG', category: 'burn', status: '사용 가능', desc: '화상 흉터 및 창상 치료 전문 레이저 시스템.' },
+  { name: '고압산소 챔버', spec: '3인용 다인용', category: 'burn', status: '운영 중', desc: '의료용 산소 공급. 식약처 허가 범위 내 화상·감압증·일산화탄소 중독 적응증에 사용.' },
+  { name: '레이저 치료기', spec: 'CO₂ / Er:YAG', category: 'burn', status: '사용 가능', desc: '식약처 허가 범위 내 화상 흉터 및 창상 치료에 활용.' },
   { name: '음압창상치료 (VAC)', spec: '이동형 다수 보유', category: 'burn', status: '사용 가능', desc: '만성 창상 및 심부 화상 창상 폐쇄 치료.' },
   { name: '중환자 모니터', spec: '단국대 권역외상센터 연동', category: 'monitoring', status: '정상 가동', desc: '응급실 활력징후 실시간 중앙 모니터링. 경보 시스템 연동.' },
   { name: '인공호흡기', spec: '4대 보유', category: 'monitoring', status: '정상 가동', desc: '화상, 외상성 기도 손상 환자 기계 환기 지원.' },

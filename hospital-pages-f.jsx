@@ -9,8 +9,8 @@ function PhilosophyPage({ onNavigate, theme }) {
       desc: '왔으면 끝까지. 치료부터 재활·복직까지 전 과정을 책임집니다.'
     },
     {
-      title: '전문성 집중',
-      desc: '화상·외상 분야에 특화된 의료 서비스를 제공합니다.'
+      title: '분야 집중',
+      desc: '화상·외상 분야 진료에 집중합니다.'
     },
     {
       title: '지역 상생',

@@ -156,7 +156,7 @@ function CareProcessPage({ onNavigate, theme }) {
               {process.id === 'outpatient' && '일반 진료 환자의 접수부터 퇴원까지의 전체 과정'}
               {process.id === 'emergency' && '응급 상황의 빠른 응시와 단계별 치료 진행'}
               {process.id === 'critical' && '생명이 위협받는 초중증 환자의 우선 관리 체계'}
-              {process.id === 'workers-comp' && '산업재해 및 공단 검진의 전문적 진행 과정'}
+              {process.id === 'workers-comp' && '산업재해 및 공단 검진의 단계별 진행 과정'}
             </p>
           </div>
 

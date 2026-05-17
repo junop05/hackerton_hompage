@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"C:/Users/junop/.claude/projects/c--Users-junop-OneDrive----------------------homepage/memory/\")",
+      "Read(//c/Users/junop/.claude/projects/c--Users-junop-OneDrive----------------------homepage/memory/**)"
+    ]
+  }
+}
