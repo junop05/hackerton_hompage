@@ -306,18 +306,18 @@ function EquipmentPage({ onNavigate, theme }) {
 
 
   const equipment = [
-  { name: '128ch-CT 스캐너', spec: '128채널 멀티슬라이스', category: 'imaging', status: '정상 가동', desc: '0.27mm 초박층 단면 촬영. 외상 환자 즉시 판독 체계.' },
-  { name: '외상 초음파', spec: '심장, 장기 외상성 초음파', category: 'imaging', status: '사용 가능', desc: '연조직 및 신경계 영상 진단.' },
-  { name: 'Digital X-ray', spec: '2대 운영 중', category: 'imaging', status: '정상 가동', desc: '이동식 포함. 응급실·수술실·병동 즉시 촬영.' },
-  { name: '혈관조영장비 (DSA)', spec: 'Biplane 방식', category: 'imaging', status: '정상 가동', desc: '혈관 영상 검사 및 색전술 시술에 활용되는 영상 장비.' },
-  { name: '응급 수술실 (OR1)', spec: '층류 공기 정화', category: 'surgery', status: '사용 중', desc: '화상·외상 수술실. 마취과 전문의 24시간 상주.' },
-  { name: '응급 수술실 (OR2)', spec: '층류 공기 정화', category: 'surgery', status: '대기 가능', desc: '동시 응급 수술 대응 가능한 2번째 수술실.' },
-  { name: '고압산소 챔버', spec: '3인용 다인용', category: 'burn', status: '운영 중', desc: '의료용 산소 공급. 식약처 허가 범위 내 화상·감압증·일산화탄소 중독 적응증에 사용.' },
-  { name: '레이저 치료기', spec: 'CO₂ / Er:YAG', category: 'burn', status: '사용 가능', desc: '식약처 허가 범위 내 화상 흉터 및 창상 치료에 활용.' },
-  { name: '음압창상치료 (VAC)', spec: '이동형 다수 보유', category: 'burn', status: '사용 가능', desc: '만성 창상 및 심부 화상 창상 폐쇄 치료.' },
-  { name: '중환자 모니터', spec: '단국대 권역외상센터 연동', category: 'monitoring', status: '정상 가동', desc: '응급실 활력징후 실시간 중앙 모니터링. 경보 시스템 연동.' },
-  { name: '인공호흡기', spec: '4대 보유', category: 'monitoring', status: '정상 가동', desc: '화상, 외상성 기도 손상 환자 기계 환기 지원.' },
-  { name: '내시경 진단기', spec: '검진, 소화기 질환 전용', category: 'imaging', status: '예약 필요', desc: '' }];
+  { name: '128ch-CT 스캐너', spec: '128채널 멀티슬라이스', category: 'imaging', status: '정상 가동' },
+  { name: '외상 초음파', spec: '심장, 장기 외상성 초음파', category: 'imaging', status: '사용 가능' },
+  { name: 'Digital X-ray', spec: '2대 운영 중', category: 'imaging', status: '정상 가동' },
+  { name: '혈관조영장비 (DSA)', spec: 'Biplane 방식', category: 'imaging', status: '정상 가동' },
+  { name: '응급 수술실 (OR1)', spec: '층류 공기 정화', category: 'surgery', status: '사용 중' },
+  { name: '응급 수술실 (OR2)', spec: '층류 공기 정화', category: 'surgery', status: '대기 가능' },
+  { name: '고압산소 챔버', spec: '3인용 다인용', category: 'burn', status: '운영 중' },
+  { name: '레이저 치료기', spec: 'CO₂ / Er:YAG', category: 'burn', status: '사용 가능' },
+  { name: '음압창상치료 (VAC)', spec: '이동형 다수 보유', category: 'burn', status: '사용 가능' },
+  { name: '중환자 모니터', spec: '단국대 권역외상센터 연동', category: 'monitoring', status: '정상 가동' },
+  { name: '인공호흡기', spec: '4대 보유', category: 'monitoring', status: '정상 가동' },
+  { name: '내시경 진단기', spec: '검진, 소화기 질환 전용', category: 'imaging', status: '예약 필요' }];
 
 
   const filtered = activeCategory === 'all' ? equipment : equipment.filter((e) => e.category === activeCategory);
@@ -360,7 +360,6 @@ function EquipmentPage({ onNavigate, theme }) {
                   </div>
                   <StatusPill status={eq.status} />
                 </div>
-                <p style={{ fontSize: 13, color: C.textMuted, fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.7 }}>{eq.desc}</p>
               </div>
             )}
           </div>

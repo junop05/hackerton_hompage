@@ -103,7 +103,7 @@ function HomePage({ onNavigate, theme }) {
                 marginBottom: 40
               }}>
                 중증 화상 및 외상 환자를 위한 24시간 진료 응급의료기관.<br />
-                서해안 권역의 응급 진료를 책임집니다.
+                서해안 권역의 응급 진료에 함께합니다.
               </p>
 
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 40 }}>
