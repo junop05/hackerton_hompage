@@ -11,17 +11,15 @@ function AppointmentPage({ onNavigate, theme }) {
 
   const depts = [
     { id: 'er', label: '응급의학과', desc: '응급 외상·화상 초진 및 처치', icon: '🚑' },
-    { id: 'burn', label: '외과', desc: '중증 화상 수술 및 드레싱', icon: '🔥' },
-    { id: 'recon', label: '외과', desc: '흉터 재건·피부이식 수술', icon: '✂️' },
+    { id: 'surgery', label: '외과', desc: '화상 수술·흉터 재건·창상 관리', icon: '🔥' },
     { id: 'ortho', label: '정형외과', desc: '외상성 골절·관절 손상', icon: '🦴' },
-    { id: 'hbot', label: 'HBOT 고압산소', desc: '고압산소 치료 상담', icon: '💨' },
-    { id: 'wound', label: '창상 관리', desc: '만성 창상·욕창 치료', icon: '🩹' },
+    { id: 'internal', label: '내과', desc: '소화기·일반 내과 진료', icon: '💊' },
   ];
 
   const doctors = [
     { id: 'p1', name: '박준호', title: '원장', dept: ['er'], specialty: '응급의학과 전문의', career: '경력 15년' },
-    { id: 'p2', name: '최준락', title: '원장', dept: ['burn'], specialty: '외과 전문의', career: '경력 18년' },
-    { id: 'p3', name: '하태솔', title: '과장', dept: ['recon', 'burn'], specialty: '외과 전문의', career: '경력 12년' },
+    { id: 'p2', name: '최준락', title: '원장', dept: ['surgery'], specialty: '외과 전문의', career: '경력 18년' },
+    { id: 'p3', name: '하태솔', title: '과장', dept: ['surgery'], specialty: '외과 전문의', career: '경력 12년' },
     { id: 'p4', name: '윤경준', title: '원장', dept: ['ortho'], specialty: '정형외과 전문의', career: '경력 16년' },
     { id: 'p5', name: '박중현', title: '과장', dept: ['ortho'], specialty: '정형외과 전문의', career: '경력 10년' },
     { id: 'p6', name: '구민호', title: '전문의', dept: ['internal'], specialty: '소화기내과 전문의', career: '경력 14년' },
@@ -104,7 +102,7 @@ function AppointmentPage({ onNavigate, theme }) {
             <div>
               <h2 style={{ fontFamily: th.headingFont, fontSize: 22, fontWeight: 700, color: C.navy, marginBottom: 8 }}>진료과를 선택하세요</h2>
               <p style={{ fontSize: 14, color: C.textMuted, fontFamily: "'Noto Sans KR', sans-serif", marginBottom: 28 }}>선택하지 않으면 전체 의료진이 표시됩니다.</p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 40 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 40 }}>
                 {depts.map(d => (
                   <button key={d.id} onClick={() => setSel(s => ({ ...s, dept: d.id }))} style={{
                     textAlign: 'left', padding: '20px', background: '#fff', borderRadius: 6, cursor: 'pointer',

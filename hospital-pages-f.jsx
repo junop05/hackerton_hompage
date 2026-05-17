@@ -19,7 +19,7 @@ function PhilosophyPage({ onNavigate, theme }) {
   ];
 
   const principles = [
-    '골든타임은 도로 위에서 낭비되어선 안 됩니다',
+    '응급 환자가 도로 위에서 시간을 낭비하지 않아야 합니다',
     '수술 이후도, 재활 이후도, 복직까지도 우리의 진료입니다',
     '중등도 환자를 끝까지 책임지는 거점이 되겠습니다'
   ];
@@ -77,7 +77,7 @@ function PhilosophyPage({ onNavigate, theme }) {
                   환자가 치료를 위해 먼 길을 떠나지 않아도 되는 환경—
                 </p>
                 <p style={{ marginBottom: 16 }}>
-                  골든타임은 병원 문 앞에서 지켜져야 합니다.
+                  응급 처치는 가까운 권역 병원에서 시작되어야 합니다.
                 </p>
                 <p style={{ fontWeight: 700, fontSize: 17, color: C.navy }}>
                   왔으면 끝까지. 치료부터 재활, 직장 복귀까지 우리가 책임집니다.

@@ -5,7 +5,7 @@ function HomePage({ onNavigate, theme }) {
 
   const centers = [
   { icon: '', title: '화상 치료 센터', sub: '중증 화상 집중 치료', desc: '1–3도 화상의 응급 처치부터 피부 이식 재건까지. 외과 의료진 24시간 대기.', page: 'burn-treatment', badge: '외과' },
-  { icon: '', title: '외상·응급 센터', sub: '중증 외상 골든타임 확보', desc: '교통사고, 추락, 다발성 외상 환자의 신속 평가 및 응급 처치. 외상 전문의 상주.', page: 'er-status', badge: '' },
+  { icon: '', title: '외상·응급 센터', sub: '중증 외상 신속 대응', desc: '교통사고, 추락, 다발성 외상 환자의 신속 평가 및 응급 처치. 외상 전문의 상주.', page: 'er-status', badge: '' },
   { icon: '', title: 'HBOT 고압산소치료', sub: '고압산소 치료 센터', desc: '화상 회복 및 난치성 상처, 감압증 치료를 위한 다인용 고압산소 챔버 운영.', page: 'hbot', badge: 'HBOT' },
   { icon: '', title: '응급 수술센터', sub: '24시간 응급 수술 가능', desc: '2개 응급 수술실 및 마취과 전문의 상주. CT, MRI 즉시 판독 체계.', page: 'er-status', badge: '응급의학과' }];
 
@@ -18,7 +18,7 @@ function HomePage({ onNavigate, theme }) {
 
   const stats = [
   { n: '1,000+', label: '연간 치료 환자' },
-  { n: '98.2%', label: '화상 골든 타임내 시술' },
+  { n: '98.2%', label: '응급 즉시 처치율' },
   { n: '24H', label: '응급 운영 체계' },
   { n: '15년', label: '진료 연수' }];
 
@@ -103,7 +103,7 @@ function HomePage({ onNavigate, theme }) {
                 marginBottom: 40
               }}>
                 중증 화상 및 외상 환자를 위한 24시간 진료 응급의료기관.<br />
-                서해안의 골든타임을 지킵니다.
+                서해안 권역의 응급 진료를 책임집니다.
               </p>
 
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 40 }}>
@@ -317,7 +317,7 @@ function HomePage({ onNavigate, theme }) {
             color: '#fff', marginBottom: 12, lineHeight: 1.3
           }}>중증 화상·외상, 지금 바로 연락하세요</h2>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', marginBottom: 36, fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.7 }}>
-            골든타임이 생사를 결정합니다. 24시간 응급 전문의가 대기 중입니다.
+            신속한 응급 처치가 중요합니다. 24시간 응급 전문의가 대기 중입니다.
           </p>
           <div className="h-phone-cta" style={{
             display: 'inline-block',
@@ -412,7 +412,7 @@ function ERStatusPage({ onNavigate, theme }) {
     <div>
       <PageHero
         title="응급실 실시간 현황"
-        subtitle="정확하고 신속한 정보로 응급 환자의 골든타임을 확보합니다."
+        subtitle="정확하고 신속한 정보로 응급 환자의 빠른 진료를 지원합니다."
         breadcrumb={[{ label: '홈', page: 'home' }, { label: '응급실 현황' }]}
         onNavigate={onNavigate} theme={theme} />
       
