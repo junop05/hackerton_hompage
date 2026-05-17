@@ -329,7 +329,7 @@ function Navigation({ currentPage, onNavigate, lang, setLang, theme }) {
             background: C.red, color: '#fff', border: 'none',
             padding: '14px 18px', borderRadius: 4, cursor: 'pointer',
             fontFamily: "'Noto Sans KR', sans-serif", fontSize: 15, fontWeight: 700
-          }}>응급 예약하기 →</button>
+          }}>예약하기 →</button>
 
           <div style={{ display: 'flex', gap: 8, marginTop: 4 }}>
             {['ko', 'en'].map((l) => (
@@ -414,7 +414,7 @@ function getStatusColor(status) {
   const value = String(status || '').trim();
   if (value === '예약 필요') return '#9CA3AF';
   if (/^(사용 중|진행 중)$/.test(value)) return C.red;
-  if (/대기|가능|진료|운영|정상|수용|상주/.test(value)) return C.success;
+  if (/가능|진료|운영|정상|수용|준비|가용/.test(value)) return C.success;
   return '#9CA3AF';
 }
 

@@ -4,8 +4,8 @@ function HomePage({ onNavigate, theme }) {
   const th = THEMES[theme];
 
   const centers = [
-  { icon: '', title: '화상 치료 센터', sub: '중증 화상 집중 치료', desc: '1–3도 화상의 응급 처치부터 피부 이식 재건까지. 외과 의료진 24시간 대기.', page: 'burn-treatment', badge: '외과' },
-  { icon: '', title: '외상·응급 센터', sub: '중증 외상 신속 대응', desc: '교통사고, 추락, 다발성 외상 환자의 신속 평가 및 응급 처치. 외상 전문의 상주.', page: 'er-status', badge: '' },
+  { icon: '', title: '화상 치료 센터', sub: '중증 화상 집중 치료', desc: '1–3도 화상의 응급 처치부터 피부 이식 재건까지 진료합니다.', page: 'burn-treatment', badge: '외과' },
+  { icon: '', title: '외상·응급 센터', sub: '중증 외상 신속 대응', desc: '교통사고, 추락, 다발성 외상 환자의 신속 평가 및 응급 처치를 진행합니다.', page: 'er-status', badge: '' },
   { icon: '', title: 'HBOT 고압산소치료', sub: '고압산소 치료 센터', desc: '화상 회복 및 난치성 상처, 감압증 치료를 위한 다인용 고압산소 챔버 운영.', page: 'hbot', badge: 'HBOT' }];
 
 
@@ -114,7 +114,7 @@ function HomePage({ onNavigate, theme }) {
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.background = '#a82e20'}
                 onMouseLeave={(e) => e.currentTarget.style.background = C.red}>
-                  응급 예약하기 →</button>
+                  예약하기 →</button>
                 <button onClick={() => onNavigate('er-status')} style={{
                   background: 'transparent', color: '#fff',
                   border: '1px solid rgba(255,255,255,0.35)',
@@ -195,8 +195,8 @@ function HomePage({ onNavigate, theme }) {
           { label: '응급실 수용', status: '수용 가능' },
           { label: '화상 치료실', status: '치료 가능' },
           { label: '응급 수술실', status: '사용 중' },
-          { label: '응급수술팀', status: '대기 중' },
-          { label: '평균 대기', status: '약 12분', color: '#94a3b8' }].
+          { label: '응급수술팀', status: '준비 중' },
+          { label: '평균 진료 시간', status: '약 12분', color: '#94a3b8' }].
           map((item, i) => {
             const color = item.color || getStatusColor(item.status);
             return (
@@ -316,7 +316,7 @@ function HomePage({ onNavigate, theme }) {
             color: '#fff', marginBottom: 12, lineHeight: 1.3
           }}>중증 화상·외상, 지금 바로 연락하세요</h2>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', marginBottom: 36, fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.7 }}>
-            신속한 응급 처치가 중요합니다. 의료진이 대기 중입니다.
+            신속한 응급 처치가 중요합니다. 의료진이 진료 중입니다.
           </p>
           <div className="h-phone-cta" style={{
             display: 'inline-block',
@@ -332,7 +332,7 @@ function HomePage({ onNavigate, theme }) {
             }}
             onMouseEnter={(e) => e.currentTarget.style.background = '#a82e20'}
             onMouseLeave={(e) => e.currentTarget.style.background = C.red}>
-              응급 예약하기</button>
+              예약하기</button>
             <button onClick={() => onNavigate('er-status')} style={{
               background: 'transparent', color: '#fff', padding: '14px 28px',
               border: '1px solid rgba(255,255,255,0.3)', borderRadius: 4, cursor: 'pointer',
@@ -359,9 +359,9 @@ function ERStatusPage({ onNavigate, theme }) {
   {
     icon: '', title: '응급실 수용 현황', status: '수용 가능',
     items: [
-    { label: '현재 대기 환자', value: '2명' },
+    { label: '현재 접수 환자', value: '2명' },
     { label: '수용 가능 병상', value: '8개' },
-    { label: '평균 대기 시간', value: '약 12분' },
+    { label: '평균 진료 시간', value: '약 12분' },
     { label: '응급 등급 1순위', value: '즉시 배정' }]
 
   },
@@ -370,17 +370,17 @@ function ERStatusPage({ onNavigate, theme }) {
     items: [
     { label: '운영 중 병상', value: '3 / 5개' },
     { label: '중증 화상 즉시 수용', value: '가능' },
-    { label: 'HBOT 병행 치료', value: '대기 1건' },
-    { label: '전담 의료진', value: '상주 중' }]
+    { label: 'HBOT 병행 치료', value: '진행 1건' },
+    { label: '전담 의료진', value: '운영 중' }]
 
   },
   {
     icon: '', title: '응급 수술실', status: '사용 중',
     items: [
     { label: 'OR1 (진행 중)', value: '~60분', alert: true },
-    { label: 'OR2', value: '대기 가능' },
+    { label: 'OR2', value: '가용' },
     { label: 'C-arm (이동형 X선)', value: '가능' },
-    { label: '마취과 전문의', value: '상주 중' }]
+    { label: '마취과 전문의', value: '운영 중' }]
 
   }];
 
@@ -388,7 +388,7 @@ function ERStatusPage({ onNavigate, theme }) {
   const staff = [
   { name: '박준호', title: '원장', dept: '응급의학과', status: '진료 중', color: C.success },
   { name: '최준락', title: '원장', dept: '외과', status: '진료 중', color: C.success },
-  { name: '하태솔', title: '과장', dept: '외과', status: '대기 중', color: C.success },
+  { name: '하태솔', title: '과장', dept: '외과', status: '진료 중', color: C.success },
   { name: '윤경준', title: '원장', dept: '정형외과', status: '진료 중', color: C.success }];
 
 
@@ -638,7 +638,7 @@ function HBOTPage({ onNavigate, theme }) {
                 fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.8,
                 marginBottom: 32
               }}>
-                다인용 고압산소 챔버를 통해 화상 회복, 난치성 상처, 감압증 치료를 진행합니다. 의료진이 24시간 대기하고 있습니다.
+                다인용 고압산소 챔버를 통해 화상 회복, 난치성 상처, 감압증 치료를 진행합니다.
               </p>
 
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>

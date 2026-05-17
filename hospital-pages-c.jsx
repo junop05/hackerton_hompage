@@ -97,7 +97,7 @@ function BurnTreatmentPage({ onNavigate, theme }) {
                 marginTop: 20, background: C.red, color: '#fff', border: 'none',
                 padding: '12px 20px', borderRadius: 4, cursor: 'pointer',
                 fontFamily: "'Noto Sans KR', sans-serif", fontSize: 13, fontWeight: 700
-              }}>즉시 응급 예약 →</button>
+              }}>즉시 예약 →</button>
               }
             </div>
           </div>
@@ -164,7 +164,7 @@ function HBOTPage({ onNavigate, theme }) {
   { label: '치료 압력', value: '2.0–3.0 ATA' },
   { label: '표준 치료 시간', value: '90–120분 / 1회' },
   { label: '공급 산소', value: '의료용 산소 (식약처 허가 규격)' },
-  { label: '내부 의료진', value: '텐더 상주' }];
+  { label: '내부 의료진', value: '텐더 동행' }];
 
 
   const faqs = [
@@ -373,7 +373,7 @@ function WorkersCompPage({ onNavigate, theme }) {
   const coverage = ['화상 및 열상 (업무 중 발생)', '기계·설비 접촉에 의한 외상', '추락·충돌 사고', '유해물질 노출 화학 화상', '작업 중 골절 및 관절 손상', '직업성 피부 질환'];
   const steps = [
   { n: '01', title: '사고 발생 즉시 신고', desc: '사업주에게 업무상 재해 사실을 즉시 보고하고 사고 경위서를 작성하세요.', action: null },
-  { n: '02', title: '응급 치료 수진', desc: '서해한결의료원 응급실로 내원하면 산재 의료기관 지정 병원으로서 즉시 치료를 시작합니다.', action: '응급 예약하기' },
+  { n: '02', title: '응급 치료 수진', desc: '서해한결의료원 응급실로 내원하면 산재 의료기관 지정 병원으로서 즉시 치료를 시작합니다.', action: '예약하기' },
   { n: '03', title: '산재 요양 신청', desc: '근로복지공단에 요양급여 신청서 제출. 병원 원무과에서 관련 서류 발급을 도와드립니다.', action: null },
   { n: '04', title: '치료 및 보상 진행', desc: '요양 승인 후 치료비 전액 지원. 4일 이상 휴업 시 휴업급여(평균임금 70%) 지급.', action: null }];
 

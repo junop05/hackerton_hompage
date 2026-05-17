@@ -163,7 +163,7 @@
     .h-footer-grid {
       grid-template-columns: 1fr !important;
       gap: 28px !important;
-      margin-bottom: 28px !important;
+      margin-bottom: 28px !important;세분 -> 분과 교체
     }
     .h-footer-bottom {
       flex-direction: column !important;
@@ -383,7 +383,7 @@ function App() {
           value={tweaks.erMode}
           options={[
             { label: '정상 (수용 가능)', value: 'normal' },
-            { label: '혼잡 (대기 증가)', value: 'busy' },
+            { label: '혼잡 (접수 증가)', value: 'busy' },
             { label: '포화 (긴급)', value: 'critical' },
           ]}
           onChange={v => setTweak('erMode', v)}
