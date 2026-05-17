@@ -241,7 +241,7 @@ function Navigation({ currentPage, onNavigate, lang, setLang, theme }) {
           onMouseEnter={(e) => e.currentTarget.style.background = '#a82e20'}
           onMouseLeave={(e) => e.currentTarget.style.background = C.red}>
 
-            응급 예약
+            예약
           </button>
         </div>
 

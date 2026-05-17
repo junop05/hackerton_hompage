@@ -306,7 +306,7 @@ function EquipmentPage({ onNavigate, theme }) {
 
 
   const equipment = [
-  { name: '128ch-CT 스캐너', spec: '128채널 멀티슬라이스', category: 'imaging', status: '정상 가동' },
+  { name: '128ch-CT', spec: '128채널 멀티슬라이스', category: 'imaging', status: '정상 가동' },
   { name: '외상 초음파', spec: '심장, 장기 외상성 초음파', category: 'imaging', status: '사용 가능' },
   { name: 'Digital X-ray', spec: '2대 운영 중', category: 'imaging', status: '정상 가동' },
   { name: '혈관조영장비 (DSA)', spec: 'Biplane 방식', category: 'imaging', status: '정상 가동' },

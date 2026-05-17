@@ -5,8 +5,8 @@ function PhilosophyPage({ onNavigate, theme }) {
 
   const values = [
     {
-      title: '끝까지 동행',
-      desc: '왔으면 끝까지. 치료부터 재활·복직까지 전 과정을 함께합니다.'
+      title: '환자 중심 진료',
+      desc: '치료부터 재활까지 환자 상태에 맞춰 단계별로 진료합니다.'
     },
     {
       title: '분야 집중',
@@ -20,8 +20,8 @@ function PhilosophyPage({ onNavigate, theme }) {
 
   const principles = [
     '응급 환자가 도로 위에서 시간을 낭비하지 않아야 합니다',
-    '수술 이후도, 재활 이후도, 복직까지도 우리의 진료입니다',
-    '중등도 환자와 끝까지 함께하는 거점이 되겠습니다'
+    '수술 이후 재활 단계까지 진료를 안내합니다',
+    '중등도 환자를 위한 권역 진료 거점이 되겠습니다'
   ];
 
   return (
@@ -80,7 +80,7 @@ function PhilosophyPage({ onNavigate, theme }) {
                   응급 처치는 가까운 권역 병원에서 시작되어야 합니다.
                 </p>
                 <p style={{ fontWeight: 700, fontSize: 17, color: C.navy }}>
-                  왔으면 끝까지. 치료부터 재활, 직장 복귀까지 함께합니다.
+                  치료부터 재활까지 단계별로 진료를 이어갑니다.
                 </p>
               </div>
             </div>

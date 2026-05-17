@@ -103,7 +103,7 @@ function HomePage({ onNavigate, theme }) {
                 marginBottom: 40
               }}>
                 중증 화상 및 외상 환자를 위한 24시간 진료 응급의료기관.<br />
-                서해안 권역의 응급 진료에 함께합니다.
+                서해안 권역의 응급 진료를 운영합니다.
               </p>
 
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 40 }}>
@@ -317,7 +317,7 @@ function HomePage({ onNavigate, theme }) {
             color: '#fff', marginBottom: 12, lineHeight: 1.3
           }}>중증 화상·외상, 지금 바로 연락하세요</h2>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', marginBottom: 36, fontFamily: "'Noto Sans KR', sans-serif", lineHeight: 1.7 }}>
-            신속한 응급 처치가 중요합니다. 24시간 응급 전문의가 대기 중입니다.
+            신속한 응급 처치가 중요합니다. 의료진이 대기 중입니다.
           </p>
           <div className="h-phone-cta" style={{
             display: 'inline-block',
